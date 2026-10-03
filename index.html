@@ -99,8 +99,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <body>
 <nav><div class="wrap">
   <span class="brand">Ziyad Mansy</span>
-  <a href="#education">Education</a><a href="#news">News</a><a href="#research">Research</a><a href="#directions">Directions</a><a href="#publications">Publications</a>
-  <a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#experience">Experience</a><a href="#teaching">Leadership</a><a href="#skills">Skills</a>
+  <a href="#education">Education</a><a href="#news">News</a><a href="#research">Research</a><a href="#directions">Directions</a><a href="#publications">Publications</a><a href="#experience">Research Exp.</a><a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#teaching">Leadership</a><a href="#industry">Industry</a><a href="#skills">Skills</a>
   <a href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV</a>
 </div></nav>
 
@@ -222,6 +221,16 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   </div>
 </section>
 
+<section id="experience">
+  <h2>Research Experience</h2>
+  <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – Present</span>
+    <span class="where">Three sole-authored studies, all under review (see <a href="#publications">Publications</a>)</span>
+    <ul><li><span class="hl">Where an LLM fuzzer's domain knowledge comes from [ICST]:</span> designed a pre-registered study comparing knowledge from a human, an agent that reads the code and an agent that runs its own experiments, across 8 JSON deserializers in Dart and Kotlin; human knowledge worked best (30.9% vs. 1.5% divergence without it), and self-acquired knowledge raised Kotlin divergence from 50% to 67% (82% with systematic probing).</li><li><span class="hl">Differential testing of Dart deserializers [AST]:</span> replaced crash oracles, which cannot see silent failures, with differential and ground-truth oracles across four Dart deserialization paths; traced the LLM fuzzer's gap to a static generator (2.9% vs. 22.2%) to domain knowledge, not search, as four facts closed it (28.8%).</li><li><span class="hl">Coverage-free LLM-guided fuzzing of C parsers [FORGE]:</span> built a black-box fuzzing framework in which an LLM refines a grammar-based test generator, with every LLM-written proposal sandboxed before it runs; raised valid inputs on cJSON from 58% to 97%, and a pre-registered replication on a second parser showed when the approach fails, with every rejected input traced to its cause.</li><li><span class="hl">Upstream impact:</span> found silent data loss in Google's json_serializable and built_value, both now documented upstream, one through my merged documentation fix; reported a JSON standards violation in JetBrains' kotlinx.serialization.</li><li><span class="hl">Open science:</span> released every harness, prompt, run and dataset (87,060 sanitizer-instrumented executions; 83,500 generated documents across 55 seeded runs) with Zenodo software DOIs, so every reported number can be recomputed.</li></ul></div>
+  <div class="item"><h3>Undergraduate Researcher, Breast Tumor Classification</h3><span class="when">2021 – 2022</span>
+    <span class="where">Modern Academy for Engineering and Technology · Advisor: <a href="https://scholar.google.com/citations?user=xq7chGkAAAAJ">Dr. Manar Donia</a></span>
+    <ul><li>Trained a TensorFlow transfer-learning classifier on 5,000+ benign and malignant breast-tumor scans, with OpenCV preprocessing.</li><li>Deployed the model on-device with TensorFlow Lite in a Flutter app that classifies a user's scan as benign or malignant fully offline and presents the result with related medical information, taking the model from training to a working application.</li></ul></div>
+</section>
+
 <section id="impact">
   <h2>Open Source and Upstream Impact</h2>
   <ul class="plain">
@@ -243,14 +252,16 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   </ul>
 </section>
 
-<section id="experience">
-  <h2>Research Experience</h2>
-  <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – Present</span>
-    <span class="where">Three sole-authored studies, all under review (see <a href="#publications">Publications</a>)</span>
-    <ul><li><span class="hl">Where an LLM fuzzer's domain knowledge comes from [ICST]:</span> designed a pre-registered study comparing knowledge from a human, an agent that reads the code and an agent that runs its own experiments, across 8 JSON deserializers in Dart and Kotlin; human knowledge worked best (30.9% vs. 1.5% divergence without it), and self-acquired knowledge raised Kotlin divergence from 50% to 67% (82% with systematic probing).</li><li><span class="hl">Differential testing of Dart deserializers [AST]:</span> replaced crash oracles, which cannot see silent failures, with differential and ground-truth oracles across four Dart deserialization paths; traced the LLM fuzzer's gap to a static generator (2.9% vs. 22.2%) to domain knowledge, not search, as four facts closed it (28.8%).</li><li><span class="hl">Coverage-free LLM-guided fuzzing of C parsers [FORGE]:</span> built a black-box fuzzing framework in which an LLM refines a grammar-based test generator, with every LLM-written proposal sandboxed before it runs; raised valid inputs on cJSON from 58% to 97%, and a pre-registered replication on a second parser showed when the approach fails, with every rejected input traced to its cause.</li><li><span class="hl">Upstream impact:</span> found silent data loss in Google's json_serializable and built_value, both now documented upstream, one through my merged documentation fix; reported a JSON standards violation in JetBrains' kotlinx.serialization.</li><li><span class="hl">Open science:</span> released every harness, prompt, run and dataset (87,060 sanitizer-instrumented executions; 83,500 generated documents across 55 seeded runs) with Zenodo software DOIs, so every reported number can be recomputed.</li></ul></div>
-  <div class="item"><h3>Undergraduate Researcher, Breast Tumor Classification</h3><span class="when">2021 – 2022</span>
-    <span class="where">Modern Academy for Engineering and Technology · Advisor: <a href="https://scholar.google.com/citations?user=xq7chGkAAAAJ">Dr. Manar Donia</a></span>
-    <ul><li>Trained a TensorFlow transfer-learning classifier on 5,000+ benign and malignant breast-tumor scans, with OpenCV preprocessing.</li><li>Deployed the model on-device with TensorFlow Lite in a Flutter app that classifies a user's scan as benign or malignant fully offline and presents the result with related medical information, taking the model from training to a working application.</li></ul></div>
+<section id="teaching">
+  <h2>Leadership and Teaching</h2>
+  <ul class="plain">
+    <li><span class="hl">Engineering team lead, Madfu (2023 – 2024):</span> led and mentored a team of 3 Flutter engineers through the delivery of a consumer app with 100K+ downloads and a merchant POS app for a central-bank-licensed fintech; built the team's quality process from nothing (mandatory code review, a shared component library and test-driven development), which reduced bugs and shortened release cycles; owned and coordinated the fixes for every third-party penetration-test round, keeping production free of security incidents.</li>
+    <li><span class="hl">AI-assisted development sessions (2025 – Present):</span> started by leading my team's knowledge-sharing sessions on AI-assisted development at Focal Agent, and now run recurring online sessions teaching engineering colleagues to use AI coding tools in their daily work.</li>
+    <li><span class="hl">Technical ownership, Naveera Tech (2026 – Present):</span> took ownership of a fleet-operations platform that had gone 9 months without a release, and shipped it to both app stores within one month of joining; designed its offline-first architecture and own its testing end to end.</li>
+    <li><span class="hl">Founding mobile engineer, Talmaro (2021):</span> joined as the company's first mobile engineer, set up its mobile development from zero, and shipped its enterprise HR app to three app stores, reaching 10K+ downloads.</li>
+    <li><span class="hl">Graduation project team leader:</span> led the team to an A+, the highest grade: planned and coordinated tasks and deadlines, guided and taught teammates, served as the team's point of contact with our advisor, Prof. Abdelmoneim Fouda, and prepared the deliverables and presentations.</li>
+    <li><span class="hl">Seminar presentations:</span> led my team in preparing and delivering the B.Sc. seminar presentations (Seminar I: A+) on topics we chose, from artificial intelligence and the mechanical engineering of how cars work to a range of software topics.</li>
+  </ul>
 </section>
 
 <section id="industry">
@@ -274,18 +285,6 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <div class="item"><h3>Independent App Developer, Google Play</h3><span class="when"></span>
     <span class="where">Self-published</span>
     <ul><li>Designed, developed and published <a href="https://play.google.com/store/apps/dev?id=6637516697625901674">5 apps</a> as sole developer, including Piety of Hearts (Flutter, 9 languages, 1K+ downloads, 4.9★) and four native Android apps in Java and Kotlin.</li></ul></div>
-</section>
-
-<section id="teaching">
-  <h2>Leadership and Teaching</h2>
-  <ul class="plain">
-    <li><span class="hl">Engineering team lead, Madfu (2023 – 2024):</span> led and mentored a team of 3 Flutter engineers through the delivery of a consumer app with 100K+ downloads and a merchant POS app for a central-bank-licensed fintech; built the team's quality process from nothing (mandatory code review, a shared component library and test-driven development), which reduced bugs and shortened release cycles; owned and coordinated the fixes for every third-party penetration-test round, keeping production free of security incidents.</li>
-    <li><span class="hl">AI-assisted development sessions (2025 – Present):</span> started by leading my team's knowledge-sharing sessions on AI-assisted development at Focal Agent, and now run recurring online sessions teaching engineering colleagues to use AI coding tools in their daily work.</li>
-    <li><span class="hl">Technical ownership, Naveera Tech (2026 – Present):</span> took ownership of a fleet-operations platform that had gone 9 months without a release, and shipped it to both app stores within one month of joining; designed its offline-first architecture and own its testing end to end.</li>
-    <li><span class="hl">Founding mobile engineer, Talmaro (2021):</span> joined as the company's first mobile engineer, set up its mobile development from zero, and shipped its enterprise HR app to three app stores, reaching 10K+ downloads.</li>
-    <li><span class="hl">Graduation project team leader:</span> led the team to an A+, the highest grade: planned and coordinated tasks and deadlines, guided and taught teammates, served as the team's point of contact with our advisor, Prof. Abdelmoneim Fouda, and prepared the deliverables and presentations.</li>
-    <li><span class="hl">Seminar presentations:</span> led my team in preparing and delivering the B.Sc. seminar presentations (Seminar I: A+) on topics we chose, from artificial intelligence and the mechanical engineering of how cars work to a range of software topics.</li>
-  </ul>
 </section>
 
 <section id="skills">

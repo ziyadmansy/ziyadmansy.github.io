@@ -51,6 +51,8 @@ h1{font:700 2.3rem/1.15 var(--serif);margin:0 0 6px;color:var(--accent)}
 .links{display:flex;flex-wrap:wrap;gap:8px}
 .links a{border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;font-weight:500;padding:6px 12px;border-radius:8px}
 .links a:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.links a.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.links a.primary:hover{opacity:.9;color:var(--bg)}
 section{padding:26px 0;border-top:1px solid var(--line)}
 h2{font:700 1.45rem/1.3 var(--serif);margin:0 0 16px;color:var(--accent)}
 p{margin:0 0 12px}
@@ -90,8 +92,9 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <body>
 <nav><div class="wrap">
   <span class="brand">Ziyad Mansy</span>
-  <a href="#research">Research</a><a href="#publications">Publications</a><a href="#impact">Open Source</a>
-  <a href="#experience">Experience</a><a href="#education">Education</a>
+  <a href="#education">Education</a><a href="#research">Research</a><a href="#publications">Publications</a>
+  <a href="#impact">Open Source</a><a href="#experience">Experience</a>
+  <a href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV</a>
 </div></nav>
 
 <main class="wrap">
@@ -103,6 +106,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
       <p class="tag">Independent researcher in software testing and security · Senior mobile software engineer</p>
       <span class="badge">Applying to Ph.D. programs in Computer Science for Fall 2027</span>
       <div class="links">
+        <a class="primary" href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV (PDF)</a>
         <a href="mailto:ziyadmohammad37@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ">Google Scholar</a>
         <a href="https://orcid.org/0009-0008-3499-3828">ORCID</a>
@@ -124,6 +128,15 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <div class="stat"><b>87K+</b><span>sanitizer-instrumented fuzzing executions</span></div>
     <div class="stat"><b>1st</b><span>of ~200 in my graduating cohort</span></div>
   </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="item"><h3>B.Sc. in Engineering and Technology, Computer Engineering and Information Technology</h3><span class="when">2017 – 2022</span>
+    <span class="where">Modern Academy for Engineering and Technology, Cairo, Egypt · Electrical Engineering, 5-year program</span>
+    <ul><li><span class="hl">Ranked 1st of ~200</span> in cohort · Grade: Excellent · CGPA 3.535/4.00 (90.03%) · WES U.S.-equivalent GPA 3.71/4.00</li>
+        <li>Graduation project (Grade A+, team leader): Flutter and Unity3D app for real-scale AR furniture placement, with systematic cross-device testing.</li>
+        <li>Led and delivered the presentations in the B.Sc. seminar courses (Seminar I: A+).</li></ul></div>
 </section>
 
 <section id="news">
@@ -206,14 +219,6 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <ul><li>Built and shipped an enterprise HR app from scratch as the first mobile engineer (10K+ downloads).</li></ul></div>
 </section>
 
-<section id="education">
-  <h2>Education</h2>
-  <div class="item"><h3>B.Sc. in Engineering and Technology, Computer Engineering and Information Technology</h3><span class="when">2017 – 2022</span>
-    <span class="where">Modern Academy for Engineering and Technology, Cairo, Egypt · Electrical Engineering, 5-year program</span>
-    <ul><li><span class="hl">Ranked 1st of ~200</span> in cohort · Grade: Excellent · CGPA 3.535/4.00 (90.03%) · WES U.S.-equivalent GPA 3.71/4.00</li>
-        <li>Graduation project (Grade A+, team leader): Flutter and Unity3D app for real-scale AR furniture placement, with systematic cross-device testing.</li>
-        <li>Led and delivered the presentations in the B.Sc. seminar courses (Seminar I: A+).</li></ul></div>
-</section>
 
 <section id="teaching">
   <h2>Leadership and Teaching</h2>

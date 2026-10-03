@@ -79,6 +79,12 @@ ul.news time{color:var(--muted);font-size:14px;font-weight:600}
 ul.plain{padding-left:20px;margin:0}
 ul.plain li{margin:4px 0}
 .hl{font-weight:600}
+.pub details{display:inline-block;margin-top:2px}
+.pub summary{display:inline;cursor:pointer;font-size:13px;font-weight:600;color:var(--accent-2);list-style:none}
+.pub summary::-webkit-details-marker{display:none}
+.pub pre{white-space:pre-wrap;word-break:break-word;font-size:12px;background:var(--chip);border-radius:8px;padding:10px 12px;margin:8px 0 0}
+.dirs li{margin:6px 0}
+.updated{font-size:12px;opacity:.85}
 footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
 @media (max-width:640px){
   .hero{grid-template-columns:1fr;text-align:left}
@@ -93,7 +99,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <body>
 <nav><div class="wrap">
   <span class="brand">Ziyad Mansy</span>
-  <a href="#education">Education</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a>
+  <a href="#education">Education</a><a href="#news">News</a><a href="#research">Research</a><a href="#directions">Directions</a><a href="#publications">Publications</a>
   <a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#experience">Experience</a><a href="#teaching">Leadership</a><a href="#skills">Skills</a>
   <a href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV</a>
 </div></nav>
@@ -107,7 +113,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
       <p class="tag">Independent researcher in software testing and security · Senior mobile software engineer</p>
       <span class="badge">Applying to Ph.D. programs in Computer Science for Fall 2027</span>
       <div class="links">
-        <a class="primary" href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="primary" href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV (PDF) <span class="updated">· Oct 2026</span></a>
         <a href="mailto:ziyadmohammad37@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ">Google Scholar</a>
         <a href="https://orcid.org/0009-0008-3499-3828">ORCID</a>
@@ -163,6 +169,16 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <p>All code, data and per-run artifacts are public, with designs committed before any data and every deviation logged.</p>
 </section>
 
+<section id="directions">
+  <h2>What I Want to Work On</h2>
+  <p>My results point to three directions for my Ph.D., each aimed at testing tools that practitioners can trust on the software they ship:</p>
+  <ul class="plain dirs">
+    <li><span class="hl">Testing agents that know what they don't know.</span> My agents learned only what their experiments reached, and reported silence as safety. I want agents that combine reading code with targeted experiments, plan those experiments around what could go wrong, and report what they did not check, so that a gap in testing is never mistaken for a clean result.</li>
+    <li><span class="hl">Oracles for failures that don't crash.</span> Many serious failures corrupt data instead of crashing: a payment amount rounded, a malformed token accepted, a protection present on Android but missing on iOS. I want differential and metamorphic oracles that catch these across libraries, platforms and app versions.</li>
+    <li><span class="hl">Evidence that a finding is real.</span> Most of the disagreements I triaged were intended behavior. I want tools that rank each finding by independent evidence, such as what the documentation promises, whether the value reaches something sensitive and how developers fixed similar issues before, so developers see the few real defects instead of hundreds of differences.</li>
+  </ul>
+</section>
+
 <section id="publications">
   <h2>Publications</h2>
   <div class="pub">
@@ -170,21 +186,39 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <h3>Where Does an LLM Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
     <p class="find">Human knowledge 30.9% &gt; code-read 11.6% &gt; none 1.5% divergence on Dart; self-acquired knowledge raises Kotlin divergence from 50.0% to 67.1%.</p>
-    <div class="acts"><a href="https://doi.org/10.5281/zenodo.23002933">Preprint</a><a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.23003263">Software DOI</a></div>
+    <div class="acts"><a href="https://doi.org/10.5281/zenodo.23002933">Preprint</a><a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.23003263">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026knowledge,
+  author = {Ibrahim, Ziyad Mohammad Mansy},
+  title  = {Where Does an {LLM} Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers},
+  year   = {2026},
+  note   = {Preprint, under review at ICST 2027},
+  doi    = {10.5281/zenodo.23002933}
+}</pre></details></div>
   </div>
   <div class="pub">
     <span class="venue">AST 2027 (co-located with ICSE) · under review</span>
     <h3>Beyond Sanitizers: LLM-Guided Refinement for Differential JSON Deserialization Testing in Dart</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
     <p class="find">The bottleneck is domain knowledge, not search; found silent integer saturation in 5.7% of 43,336 checks, now documented upstream.</p>
-    <div class="acts"><a href="https://doi.org/10.5281/zenodo.22555794">Preprint</a><a href="https://github.com/ziyadmansy/agentic-fuzzing-dart-json">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22544011">Software DOI</a></div>
+    <div class="acts"><a href="https://doi.org/10.5281/zenodo.22555794">Preprint</a><a href="https://github.com/ziyadmansy/agentic-fuzzing-dart-json">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22544011">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026beyond,
+  author = {Ibrahim, Ziyad Mohammad Mansy},
+  title  = {Beyond Sanitizers: {LLM}-Guided Refinement for Differential {JSON} Deserialization Testing in {Dart}},
+  year   = {2026},
+  note   = {Preprint, under review at AST 2027},
+  doi    = {10.5281/zenodo.22555794}
+}</pre></details></div>
   </div>
   <div class="pub">
     <span class="venue">FORGE 2027 (co-located with ICSE) · under review</span>
     <h3>Coverage-Free Fuzzing: LLM-Guided Refinement of Grammar-Based Test Generators</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
     <p class="find">Black-box LLM refinement raised cJSON acceptance from 58.2% to 97.1% with no coverage signal, and a pre-registered replication showed when the approach fails.</p>
-    <div class="acts"><a href="https://doi.org/10.5281/zenodo.22556342">Preprint</a><a href="https://github.com/ziyadmansy/agentic-grammar-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22231288">Software DOI</a></div>
+    <div class="acts"><a href="https://doi.org/10.5281/zenodo.22556342">Preprint</a><a href="https://github.com/ziyadmansy/agentic-grammar-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22231288">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026coverage,
+  author = {Ibrahim, Ziyad Mohammad Mansy},
+  title  = {Coverage-Free Fuzzing: {LLM}-Guided Refinement of Grammar-Based Test Generators},
+  year   = {2026},
+  note   = {Preprint, under review at FORGE 2027},
+  doi    = {10.5281/zenodo.22556342}
+}</pre></details></div>
   </div>
 </section>
 
@@ -206,19 +240,22 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <ul class="plain">
     <li><span class="hl">Ranked 1st of ~200</span> in the 2022 graduating cohort, Modern Academy for Engineering and Technology.</li>
     <li><span class="hl">Academic excellence certificate and medal</span> every year of the B.Sc. (2017 – 2022).</li>
-    <li><span class="hl">Selected for a Q&amp;A session with Dr. Marcelo D'Amorim (NC State)</span>, one of ~20 of ~70 prospective Ph.D. applicants whose solutions to his research challenge passed (2026).</li>
   </ul>
 </section>
 
 <section id="experience">
-  <h2>Experience</h2>
-  <p>5+ years shipping production iOS, Android and web apps in fintech, healthcare, transportation, HR and real estate for clients in the US, UK, Saudi Arabia and the UAE, with 200K+ combined downloads.</p>
+  <h2>Research Experience</h2>
   <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – Present</span>
-    <span class="where">Cairo, Egypt</span>
-    <ul><li>Three sole-authored studies on LLM-guided fuzzing and differential testing, all under review (see <a href="#publications">Publications</a>).</li></ul></div>
+    <span class="where">Three sole-authored studies, all under review (see <a href="#publications">Publications</a>)</span>
+    <ul><li><span class="hl">Where an LLM fuzzer's domain knowledge comes from [ICST]:</span> designed a pre-registered study comparing knowledge from a human, an agent that reads the code and an agent that runs its own experiments, across 8 JSON deserializers in Dart and Kotlin; human knowledge worked best (30.9% vs. 1.5% divergence without it), and self-acquired knowledge raised Kotlin divergence from 50% to 67% (82% with systematic probing).</li><li><span class="hl">Differential testing of Dart deserializers [AST]:</span> replaced crash oracles, which cannot see silent failures, with differential and ground-truth oracles across four Dart deserialization paths; traced the LLM fuzzer's gap to a static generator (2.9% vs. 22.2%) to domain knowledge, not search, as four facts closed it (28.8%).</li><li><span class="hl">Coverage-free LLM-guided fuzzing of C parsers [FORGE]:</span> built a black-box fuzzing framework in which an LLM refines a grammar-based test generator, with every LLM-written proposal sandboxed before it runs; raised valid inputs on cJSON from 58% to 97%, and a pre-registered replication on a second parser showed when the approach fails, with every rejected input traced to its cause.</li><li><span class="hl">Upstream impact:</span> found silent data loss in Google's json_serializable and built_value, both now documented upstream, one through my merged documentation fix; reported a JSON standards violation in JetBrains' kotlinx.serialization.</li><li><span class="hl">Open science:</span> released every harness, prompt, run and dataset (87,060 sanitizer-instrumented executions; 83,500 generated documents across 55 seeded runs) with Zenodo software DOIs, so every reported number can be recomputed.</li></ul></div>
   <div class="item"><h3>Undergraduate Researcher, Breast Tumor Classification</h3><span class="when">2021 – 2022</span>
     <span class="where">Modern Academy for Engineering and Technology · Advisor: <a href="https://scholar.google.com/citations?user=xq7chGkAAAAJ">Dr. Manar Donia</a></span>
     <ul><li>Trained a TensorFlow transfer-learning classifier on 5,000+ benign and malignant breast-tumor scans, with OpenCV preprocessing.</li><li>Deployed the model on-device with TensorFlow Lite in a Flutter app that classifies a user's scan as benign or malignant fully offline and presents the result with related medical information, taking the model from training to a working application.</li></ul></div>
+</section>
+
+<section id="industry">
+  <h2>Industry Experience</h2>
+  <p>5+ years shipping production iOS, Android and web apps in fintech, healthcare, transportation, HR and real estate for clients in the US, UK, Saudi Arabia and the UAE, with 200K+ combined downloads.</p>
   <div class="item"><h3>Senior Mobile Software Engineer, Naveera Tech</h3><span class="when">May 2026 – Present</span>
     <span class="where">Remote (US)</span>
     <ul><li>Took over a fleet-operations platform that had gone 9 months without a release and shipped it to the App Store and Google Play within one month of joining; it now handles <span class="hl">thousands of trips per day</span> for hundreds of US client organizations.</li><li>Built the HIPAA-compliant Driver and Client apps used by non-emergency medical transportation (NEMT), paratransit and commercial transportation providers.</li><li>Kept dispatch, navigation and trip state correct through connectivity loss by designing an offline-first architecture that queues operations and reconciles them automatically on reconnection.</li><li>Built in-app navigation with live routing and turn-by-turn guidance, and the dispatch, routing and billing workflows that connect drivers, clients and operators.</li><li>Owned testing end to end: wrote unit and integration tests, ran manual test passes, and used AI agents to execute manual-style test scenarios across the apps' core flows.</li></ul></div>
@@ -242,8 +279,10 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <section id="teaching">
   <h2>Leadership and Teaching</h2>
   <ul class="plain">
-    <li><span class="hl">AI-assisted development sessions:</span> run recurring online sessions teaching engineering colleagues to use AI coding tools (2025 – Present).</li>
-    <li><span class="hl">Engineering team lead:</span> led and mentored a team of 3 Flutter engineers at Madfu (2023 – 2024).</li>
+    <li><span class="hl">Engineering team lead, Madfu (2023 – 2024):</span> led and mentored a team of 3 Flutter engineers through the delivery of a consumer app with 100K+ downloads and a merchant POS app for a central-bank-licensed fintech; built the team's quality process from nothing (mandatory code review, a shared component library and test-driven development), which reduced bugs and shortened release cycles; owned and coordinated the fixes for every third-party penetration-test round, keeping production free of security incidents.</li>
+    <li><span class="hl">AI-assisted development sessions (2025 – Present):</span> started by leading my team's knowledge-sharing sessions on AI-assisted development at Focal Agent, and now run recurring online sessions teaching engineering colleagues to use AI coding tools in their daily work.</li>
+    <li><span class="hl">Technical ownership, Naveera Tech (2026 – Present):</span> took ownership of a fleet-operations platform that had gone 9 months without a release, and shipped it to both app stores within one month of joining; designed its offline-first architecture and own its testing end to end.</li>
+    <li><span class="hl">Founding mobile engineer, Talmaro (2021):</span> joined as the company's first mobile engineer, set up its mobile development from zero, and shipped its enterprise HR app to three app stores, reaching 10K+ downloads.</li>
     <li><span class="hl">Graduation project team leader:</span> led the team to an A+, the highest grade: planned and coordinated tasks and deadlines, guided and taught teammates, served as the team's point of contact with our advisor, Prof. Abdelmoneim Fouda, and prepared the deliverables and presentations.</li>
     <li><span class="hl">Seminar presentations:</span> led my team in preparing and delivering the B.Sc. seminar presentations (Seminar I: A+) on topics we chose, from artificial intelligence and the mechanical engineering of how cars work to a range of software topics.</li>
   </ul>

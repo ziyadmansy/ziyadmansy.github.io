@@ -53,7 +53,7 @@ h1{font:700 2.3rem/1.15 var(--serif);margin:0 0 6px;color:var(--accent)}
 .links a:hover{border-color:var(--accent-2);color:var(--accent-2)}
 .links a.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .links a.primary:hover{opacity:.9;color:var(--bg)}
-section{padding:26px 0;border-top:1px solid var(--line)}
+section{padding:26px 0;border-top:1px solid var(--line);scroll-margin-top:60px}
 h2{font:700 1.45rem/1.3 var(--serif);margin:0 0 16px;color:var(--accent)}
 p{margin:0 0 12px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 4px}
@@ -119,12 +119,12 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 
 <section id="about">
   <h2>About</h2>
-  <p>I study how automated testing can find bugs and security vulnerabilities before release, especially <span class="hl">silent failures that never crash</span>. My current work asks how LLM-based testing agents acquire the domain knowledge they need, how to build test oracles for software without reliable crash signals, and how differential testing can expose behavior that no single implementation reveals.</p>
+  <p>My goal is automated testing that catches bugs and security vulnerabilities before attackers exploit them or users pay for them, especially <span class="hl">silent failures that never crash</span>, and gives developers a short list of real defects to fix instead of a flood of false alarms. My current work asks how LLM-based testing agents acquire the domain knowledge they need, how to build test oracles for software without reliable crash signals, and how differential testing can expose behavior that no single implementation reveals.</p>
   <p>In 2026 I turned a research challenge into three sole-authored studies on LLM-guided fuzzing, all now under review, while working full-time as a senior engineer. Along the way my findings led Google-maintained libraries to document behavior that silently changed data, including a documentation fix of mine that was merged into <a href="https://github.com/google/json_serializable.dart/pull/1592">json_serializable</a>.</p>
   <p>Before research, I spent five years shipping Android, iOS and Flutter apps in regulated domains: a payments platform licensed by the Saudi Central Bank, where I led the team that closed every penetration-test finding with zero production security incidents, and HIPAA-compliant transportation apps handling thousands of trips a day in the US. I graduated <span class="hl">first of ~200</span> in Computer Engineering.</p>
   <div class="stats">
     <div class="stat"><b>3</b><span>sole-authored papers under review</span></div>
-    <div class="stat"><b>21M+</b><span>monthly downloads of the Dart libraries I tested</span></div>
+    <div class="stat"><b>18M+</b><span>monthly downloads of Google's json_serializable and built_value, both now documented after my findings</span></div>
     <div class="stat"><b>87K+</b><span>sanitizer-instrumented fuzzing executions</span></div>
     <div class="stat"><b>1st</b><span>of ~200 in my graduating cohort</span></div>
   </div>
@@ -223,7 +223,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <section id="teaching">
   <h2>Leadership and Teaching</h2>
   <ul class="plain">
-    <li>Run recurring online sessions teaching engineering colleagues to use AI coding tools (2024 – present).</li>
+    <li>Run recurring online sessions teaching engineering colleagues to use AI coding tools (2025 – present).</li>
     <li>Led and mentored a team of 3 engineers at Madfu, introducing code review and test-driven development.</li>
   </ul>
 </section>

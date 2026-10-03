@@ -38,9 +38,10 @@ a{color:var(--accent-2);text-decoration:none;border-bottom:1px solid transparent
 a:hover{border-bottom-color:currentColor}
 .wrap{max-width:860px;margin:0 auto;padding:0 20px}
 nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;gap:18px;align-items:center;height:52px;overflow-x:auto;white-space:nowrap}
+nav .wrap{display:flex;gap:15px;align-items:center;height:52px;overflow-x:auto;white-space:nowrap}
 nav .brand{font-weight:700;color:var(--ink);margin-right:auto}
-nav a{color:var(--muted);font-size:14px;font-weight:500}
+nav a{color:var(--muted);font-size:13.5px;font-weight:500}
+nav .wrap{max-width:1100px}
 nav a:hover{color:var(--ink)}
 header{padding:56px 0 28px}
 .hero{display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:center}
@@ -92,8 +93,8 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <body>
 <nav><div class="wrap">
   <span class="brand">Ziyad Mansy</span>
-  <a href="#education">Education</a><a href="#research">Research</a><a href="#publications">Publications</a>
-  <a href="#impact">Open Source</a><a href="#experience">Experience</a>
+  <a href="#education">Education</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a>
+  <a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#experience">Experience</a><a href="#teaching">Leadership</a><a href="#skills">Skills</a>
   <a href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV</a>
 </div></nav>
 
@@ -132,11 +133,12 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 
 <section id="education">
   <h2>Education</h2>
-  <div class="item"><h3>B.Sc. in Engineering and Technology, Computer Engineering and Information Technology</h3><span class="when">2017 – 2022</span>
-    <span class="where">Modern Academy for Engineering and Technology, Cairo, Egypt · Electrical Engineering, 5-year program</span>
-    <ul><li><span class="hl">Ranked 1st of ~200</span> in cohort · Grade: Excellent · CGPA 3.535/4.00 (90.03%) · WES U.S.-equivalent GPA 3.71/4.00</li>
-        <li>Graduation project (Grade A+, team leader; advisor: Prof. Abdelmoneim Fouda): Flutter and Unity3D app for real-scale AR furniture placement, with systematic cross-device testing.</li>
-        <li>Led and delivered the presentations in the B.Sc. seminar courses (Seminar I: A+).</li></ul></div>
+  <div class="item"><h3>B.Sc. in Engineering and Technology, Computer Engineering and Information Technology</h3><span class="when">2017 – May 2022</span>
+    <span class="where">Modern Academy for Engineering and Technology, Cairo, Egypt · Electrical Engineering Specialization</span>
+    <ul><li><span class="hl">Ranked 1st of ~200</span> in cohort · General grade: Excellent · CGPA 3.535/4.00 (90.03%)</li>
+        <li>WES U.S. equivalency: Bachelor's degree, GPA 3.71/4.00 (course-by-course evaluation, 180 semester credits)</li>
+        <li>Graduation project: <em>Modern Home Furniture in Virtual Reality</em> (Grade A+, team leader; advisor: Prof. Abdelmoneim Fouda). Flutter client integrated with Unity3D for real-scale AR furniture placement; systematic testing of the mobile-to-engine communication layer across devices and performance conditions.</li>
+        <li>Selected coursework: Data Structures &amp; Algorithms · Program Design &amp; Computer Language · Distributed Computer Systems · Computer Modeling &amp; Simulation · Software Engineering · Languages &amp; Compilers · Operating Systems · Computer Architecture · Probability &amp; Statistics</li></ul></div>
 </section>
 
 <section id="news">
@@ -193,39 +195,63 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty; the maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178">dart-lang/build#5178</a>).</li>
     <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a standalone reproducer, that strict mode accepts control characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276">#3276</a>).</li>
     <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with 250K+ monthly downloads, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431">PR #431</a>).</li>
+    <li><span class="hl">LLVM:</span> verified and isolated an AddressSanitizer startup hang on macOS in an upstream issue, showing LLVM 23.1.0 unaffected in the same environment (<a href="https://github.com/llvm/llvm-project/issues/200447">#200447</a>).</li>
+    <li><span class="hl">Reproducible research:</span> released code, datasets and reproduction instructions for all three studies with Zenodo software DOIs; the third study and the parson replication were pre-registered, with designs committed before any data and every later change logged.</li>
+    <li><span class="hl">Community:</span> 3,000+ GitHub contributions across 50+ repositories; <a href="https://stackoverflow.com/users/14139092/ziyad-mansy">Stack Overflow</a> top 8% (2021); developer articles on <a href="https://medium.com/@ziyadmohammad37">Medium</a>.</li>
+  </ul>
+</section>
+
+<section id="honors">
+  <h2>Honors and Selections</h2>
+  <ul class="plain">
+    <li><span class="hl">Ranked 1st of ~200</span> in the 2022 graduating cohort, Modern Academy for Engineering and Technology.</li>
+    <li><span class="hl">Selected for a Q&amp;A session with Dr. Marcelo D'Amorim (NC State)</span>, one of ~20 of ~70 prospective Ph.D. applicants whose solutions to his research challenge passed (2026).</li>
   </ul>
 </section>
 
 <section id="experience">
   <h2>Experience</h2>
-  <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – present</span>
-    <span class="where">Remote</span></div>
-  <div class="item"><h3>Senior Mobile Software Engineer, Naveera Tech</h3><span class="when">May 2026 – present</span>
+  <p>5+ years shipping production iOS, Android and web apps in fintech, healthcare, transportation, HR and real estate for clients in the US, UK, Saudi Arabia and the UAE, with 200K+ combined downloads.</p>
+  <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – Present</span>
+    <span class="where">Cairo, Egypt</span>
+    <ul><li>Three sole-authored studies on LLM-guided fuzzing and differential testing, all under review (see <a href="#publications">Publications</a>).</li></ul></div>
+  <div class="item"><h3>Senior Mobile Software Engineer, Naveera Tech</h3><span class="when">May 2026 – Present</span>
     <span class="where">Remote (US)</span>
-    <ul><li>Shipped a stalled HIPAA-compliant fleet platform to both app stores in one month; it now handles thousands of trips a day for hundreds of US organizations on an offline-first architecture I designed.</li></ul></div>
+    <ul><li>Took over a fleet-operations platform that had gone 9 months without a release and shipped it to the App Store and Google Play within one month of joining; it now handles <span class="hl">thousands of trips per day</span> for hundreds of US client organizations.</li><li>Built the HIPAA-compliant Driver and Client apps used by non-emergency medical transportation (NEMT), paratransit and commercial transportation providers.</li><li>Kept dispatch, navigation and trip state correct through connectivity loss by designing an offline-first architecture that queues operations and reconciles them automatically on reconnection.</li><li>Built in-app navigation with live routing and turn-by-turn guidance, and the dispatch, routing and billing workflows that connect drivers, clients and operators.</li><li>Owned testing end to end: wrote unit and integration tests, ran manual test passes, and used AI agents to execute manual-style test scenarios across the apps' core flows.</li></ul></div>
   <div class="item"><h3>Senior Mobile Software Engineer, Focal Agent</h3><span class="when">Aug 2024 – Apr 2026</span>
     <span class="where">Remote (UK)</span>
-    <ul><li>Delivered AI features for PropertyBox, a real-estate platform used across the UK, Europe and the UAE, and led the team's sessions on AI-assisted development.</li></ul></div>
+    <ul><li>Delivered AI features for PropertyBox, a real-estate platform used by agencies across the UK, Europe and the UAE: automated property-description generation, AI photo enhancement and one-step social publishing.</li><li>Built client-specific customizations for enterprise clients <span class="hl">Reapit and Connells</span>, and UK regulatory workflows for EPC compliance and campaign management.</li><li>Shipped and maintained one Flutter codebase across Web, Android and iOS through automated Azure Pipelines CI/CD.</li><li>Wrote unit and integration tests, and used AI agents to automate manual testing, exercising the app the way a real human tester would.</li><li>Led the team's knowledge-sharing sessions on AI-assisted software development.</li></ul></div>
   <div class="item"><h3>Lead Mobile Software Engineer, Madfu (BNPL fintech)</h3><span class="when">Jan 2023 – Jul 2024</span>
     <span class="where">Remote (Saudi Arabia)</span>
-    <ul><li>Led 3 engineers on consumer (100K+ downloads) and merchant apps of a payments platform licensed by the Saudi Central Bank.</li>
-        <li>Closed every finding from recurring third-party penetration tests, with zero production security incidents.</li>
-        <li>Built the team's quality process from scratch: mandatory code review, a shared component library and test-driven development.</li></ul></div>
+    <ul><li>Led a team of 3 Flutter engineers and owned the architecture and delivery of the consumer app (<span class="hl">100K+ downloads</span>) and merchant POS app of a Sharia-compliant BNPL platform licensed by the Saudi Central Bank (SAMA).</li><li>Built installment plans, payment flows, and merchant and point-of-sale integrations for the platform's consumers and merchants.</li><li>Maintained <span class="hl">zero production security incidents</span> by closing all 5–10 findings from each recurring third-party penetration test, including secure key handling, encryption at rest, SSH hardening and screen-capture protection.</li><li>Built the team's quality process from nothing: mandatory code review, a shared component library and test-driven development, which reduced bugs and shortened release cycles.</li></ul></div>
   <div class="item"><h3>Senior Mobile Software Engineer, Assas IT Solutions</h3><span class="when">Jan 2022 – Dec 2022</span>
     <span class="where">Remote (Saudi Arabia)</span>
-    <ul><li>Built core features of Tahara, ranked #2 in Health &amp; Fitness on the Saudi App Store (100K+ downloads, 4.6★).</li></ul></div>
+    <ul><li>Built core features of Tahara, a women's-health app that reached <span class="hl">#2 in Health &amp; Fitness</span> on the Saudi App Store, with 100K+ downloads and a 4.6★ rating from 1.2K+ reviews.</li><li>Implemented the menstrual-cycle calculations and their visualization, and a week-by-week pregnancy calendar.</li></ul></div>
   <div class="item"><h3>Founding Mobile Software Engineer, Talmaro</h3><span class="when">Mar 2021 – Dec 2021</span>
     <span class="where">Remote (UAE)</span>
-    <ul><li>Built and shipped an enterprise HR app from scratch as the first mobile engineer (10K+ downloads).</li></ul></div>
+    <ul><li>Built and shipped Talmaro-ESS from scratch as the company's first mobile engineer, an enterprise HR app that reached <span class="hl">10K+ downloads</span> across the App Store, Google Play and Huawei AppGallery.</li><li>Delivered the attendance, payroll, leave and team-approval workflows used by employees and managers.</li></ul></div>
+  <div class="item"><h3>Independent App Developer, Google Play</h3><span class="when"></span>
+    <span class="where">Self-published</span>
+    <ul><li>Designed, developed and published <a href="https://play.google.com/store/apps/dev?id=6637516697625901674">5 apps</a> as sole developer, including Piety of Hearts (Flutter, 9 languages, 1K+ downloads, 4.9★) and four native Android apps in Java and Kotlin.</li></ul></div>
 </section>
-
 
 <section id="teaching">
   <h2>Leadership and Teaching</h2>
   <ul class="plain">
-    <li>Run recurring online sessions teaching engineering colleagues to use AI coding tools (2025 – present).</li>
-    <li>Led and mentored a team of 3 engineers at Madfu, introducing code review and test-driven development.</li>
-    <li>Led my graduation project team to an A+, the highest grade: planned and coordinated tasks and deadlines, guided and taught teammates, served as the team's point of contact with our advisor, Prof. Abdelmoneim Fouda, and prepared the deliverables and presentations.</li>
+    <li><span class="hl">AI-assisted development sessions:</span> run recurring online sessions teaching engineering colleagues to use AI coding tools (2025 – Present).</li>
+    <li><span class="hl">Engineering team lead:</span> led and mentored a team of 3 Flutter engineers at Madfu (2023 – 2024).</li>
+    <li><span class="hl">Graduation project team leader:</span> led the team to an A+, the highest grade: planned and coordinated tasks and deadlines, guided and taught teammates, served as the team's point of contact with our advisor, Prof. Abdelmoneim Fouda, and prepared the deliverables and presentations.</li>
+    <li><span class="hl">Seminar presentations:</span> led and delivered the presentations in the B.Sc. seminar courses (Seminar I: A+).</li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul class="plain">
+    <li><span class="hl">Research and testing:</span> fuzzing, grammar-based and property-based test generation, differential testing, automated test generation, static analysis, TDD, pre-registered experiments, exact nonparametric statistics (Mann–Whitney U, Cliff's δ, Holm correction)</li>
+    <li><span class="hl">Tools:</span> Hypothesis, ANTLR, AddressSanitizer, UndefinedBehaviorSanitizer, OpenAI API, Git, GitHub Actions, Azure DevOps, Codemagic</li>
+    <li><span class="hl">Programming languages:</span> Dart, Python, Kotlin, C, Java, Swift, JavaScript</li>
+    <li><span class="hl">Mobile and web:</span> Flutter, Android, iOS, React, Flutter Web; Clean Architecture, SOLID, offline-first systems; secure key storage, encryption at rest</li>
   </ul>
 </section>
 </main>

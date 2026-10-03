@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziyad Mansy · Software Testing &amp; Security Research</title>
+<meta name="description" content="Ziyad Mohammad Mansy Ibrahim: independent researcher in LLM-guided software testing, fuzzing and differential testing, and senior mobile software engineer. Applying to Ph.D. programs for Fall 2027.">
+<meta name="author" content="Ziyad Mohammad Mansy Ibrahim">
+<meta property="og:title" content="Ziyad Mansy · Software Testing & Security Research">
+<meta property="og:description" content="LLM-guided fuzzing, test oracles for silent failures, differential testing. Three sole-authored papers under review (ICST, AST, FORGE 2027).">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/44037432?v=4">
+<meta property="og:type" content="profile">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/44037432?v=4&s=64">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Ziyad Mohammad Mansy Ibrahim","alternateName":"Ziyad Mansy",
+ "url":"https://ziyadmansy.github.io","image":"https://avatars.githubusercontent.com/u/44037432?v=4",
+ "jobTitle":"Independent Researcher; Senior Mobile Software Engineer",
+ "alumniOf":"Modern Academy for Engineering and Technology",
+ "sameAs":["https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ","https://orcid.org/0009-0008-3499-3828","https://github.com/ziyadmansy","https://linkedin.com/in/ziyadmansy"]}
+</script>
+<style>
+:root{
+  --bg:#fbfbf9; --surface:#ffffff; --ink:#1b1f24; --muted:#5b6470; --line:#e4e6ea;
+  --accent:#1a3361; --accent-2:#2f5fb3; --chip:#eef2f9; --good:#1f6f43;
+  --serif:"Source Serif 4",Georgia,serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0f1216; --surface:#161a20; --ink:#e7eaee; --muted:#a2abb7; --line:#262c35;
+        --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent-2);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;height:52px;overflow-x:auto;white-space:nowrap}
+nav .brand{font-weight:700;color:var(--ink);margin-right:auto}
+nav a{color:var(--muted);font-size:14px;font-weight:500}
+nav a:hover{color:var(--ink)}
+header{padding:56px 0 28px}
+.hero{display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:center}
+.hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--surface);box-shadow:0 2px 14px rgba(0,0,0,.12)}
+h1{font:700 2.3rem/1.15 var(--serif);margin:0 0 6px;color:var(--accent)}
+.tag{font-size:1.05rem;color:var(--muted);margin:0 0 14px}
+.badge{display:inline-block;background:var(--chip);color:var(--accent);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;font-weight:500;padding:6px 12px;border-radius:8px}
+.links a:hover{border-color:var(--accent-2);color:var(--accent-2)}
+section{padding:26px 0;border-top:1px solid var(--line)}
+h2{font:700 1.45rem/1.3 var(--serif);margin:0 0 16px;color:var(--accent)}
+p{margin:0 0 12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 4px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.stat b{display:block;font:700 1.5rem/1.1 var(--serif);color:var(--accent)}
+.stat span{font-size:13px;color:var(--muted)}
+ul.news{list-style:none;padding:0;margin:0}
+ul.news li{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:6px 0}
+ul.news time{color:var(--muted);font-size:14px;font-weight:600}
+.pub{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.pub .venue{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--accent);background:var(--chip);padding:2px 8px;border-radius:6px;margin-bottom:6px}
+.pub h3{font-size:1.02rem;line-height:1.4;margin:0 0 4px}
+.pub .auth{color:var(--muted);font-size:14px;margin:0 0 8px}
+.pub .find{font-size:15px;margin:0 0 8px}
+.pub .acts a{font-size:13px;font-weight:600;margin-right:12px}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 16px;margin-bottom:16px}
+.item h3{font-size:1rem;margin:0}
+.item .when{color:var(--muted);font-size:14px;white-space:nowrap}
+.item .where{grid-column:1/-1;color:var(--muted);font-size:14px;margin-top:-2px}
+.item ul{grid-column:1/-1;margin:4px 0 0;padding-left:20px}
+.item li{margin:2px 0}
+ul.plain{padding-left:20px;margin:0}
+ul.plain li{margin:4px 0}
+.hl{font-weight:600}
+footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:640px){
+  .hero{grid-template-columns:1fr;text-align:left}
+  .hero img{width:104px;height:104px}
+  h1{font-size:1.9rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  ul.news li{grid-template-columns:1fr;gap:0}
+  .item{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <span class="brand">Ziyad Mansy</span>
+  <a href="#research">Research</a><a href="#publications">Publications</a><a href="#impact">Open Source</a>
+  <a href="#experience">Experience</a><a href="#education">Education</a>
+</div></nav>
+
+<main class="wrap">
+<header>
+  <div class="hero">
+    <img src="https://avatars.githubusercontent.com/u/44037432?v=4" alt="Photo of Ziyad Mansy" width="140" height="140">
+    <div>
+      <h1>Ziyad Mohammad Mansy Ibrahim</h1>
+      <p class="tag">Independent researcher in software testing and security · Senior mobile software engineer</p>
+      <span class="badge">Applying to Ph.D. programs in Computer Science for Fall 2027</span>
+      <div class="links">
+        <a href="mailto:ziyadmohammad37@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ">Google Scholar</a>
+        <a href="https://orcid.org/0009-0008-3499-3828">ORCID</a>
+        <a href="https://github.com/ziyadmansy">GitHub</a>
+        <a href="https://linkedin.com/in/ziyadmansy">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About</h2>
+  <p>I study how automated testing can find bugs and security vulnerabilities before release, especially <span class="hl">silent failures that never crash</span>. My current work asks how LLM-based testing agents acquire the domain knowledge they need, how to build test oracles for software without reliable crash signals, and how differential testing can expose behavior that no single implementation reveals.</p>
+  <p>In 2026 I turned a research challenge into three sole-authored studies on LLM-guided fuzzing, all now under review, while working full-time as a senior engineer. Along the way my findings led Google-maintained libraries to document behavior that silently changed data, including a documentation fix of mine that was merged into <a href="https://github.com/google/json_serializable.dart/pull/1592">json_serializable</a>.</p>
+  <p>Before research, I spent five years shipping Android, iOS and Flutter apps in regulated domains: a payments platform licensed by the Saudi Central Bank, where I led the team that closed every penetration-test finding with zero production security incidents, and HIPAA-compliant transportation apps handling thousands of trips a day in the US. I graduated <span class="hl">first of ~200</span> in Computer Engineering.</p>
+  <div class="stats">
+    <div class="stat"><b>3</b><span>sole-authored papers under review</span></div>
+    <div class="stat"><b>21M+</b><span>monthly downloads of the Dart libraries I tested</span></div>
+    <div class="stat"><b>87K+</b><span>sanitizer-instrumented fuzzing executions</span></div>
+    <div class="stat"><b>1st</b><span>of ~200 in my graduating cohort</span></div>
+  </div>
+</section>
+
+<section id="news">
+  <h2>News</h2>
+  <ul class="news">
+    <li><time>Oct 2026</time><span>Submitted <em>Where Does an LLM Fuzzer's Domain Knowledge Come From?</em> to ICST 2027.</span></li>
+    <li><time>Sep 2026</time><span>My documentation fix for silent integer conversion was <a href="https://github.com/google/json_serializable.dart/pull/1592">merged into Google's json_serializable</a>; the maintainer called it a "great fix to a VERY nuanced problem."</span></li>
+    <li><time>Sep 2026</time><span>The built_value maintainer documented the missing-list behavior I reported (<a href="https://github.com/dart-lang/build/pull/5178">dart-lang/build#5178</a>).</span></li>
+    <li><time>Sep 2026</time><span>Reported a JSON standards violation in JetBrains' kotlinx.serialization strict mode (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276">#3276</a>).</span></li>
+    <li><time>Sep 2026</time><span>Papers under review at AST 2027 and FORGE 2027, both co-located with ICSE 2027.</span></li>
+  </ul>
+</section>
+
+<section id="research">
+  <h2>Research</h2>
+  <p>My research started with a fuzzing challenge that Dr. Marcelo D'Amorim (NC State) set for prospective Ph.D. applicants; my solution passed and I was one of about 20 of 70 applicants invited to a Q&amp;A session. Each study since has answered the question the previous one left open:</p>
+  <ul class="plain">
+    <li><span class="hl">Can an LLM improve a fuzzer without seeing inside the target?</span> Yes on cJSON (58.2% → 97.1% valid inputs), but a pre-registered replication on a second parser reversed the effect, and I traced every rejected input to its cause.</li>
+    <li><span class="hl">What happens when there is no crash to detect?</span> A differential oracle across four Dart deserializers showed the LLM loop lagged a static generator 2.9% vs. 22.2%; four facts of domain knowledge closed the gap entirely.</li>
+    <li><span class="hl">Can the fuzzer acquire that knowledge itself?</span> A pre-registered study across Dart and Kotlin found self-acquired knowledge helps where interesting behavior is dense (50% → 67%, 82% with systematic probing) and misses it where it is narrow.</li>
+  </ul>
+  <p>All code, data and per-run artifacts are public, with designs committed before any data and every deviation logged.</p>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+  <div class="pub">
+    <span class="venue">ICST 2027 · under review</span>
+    <h3>Where Does an LLM Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers</h3>
+    <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
+    <p class="find">Human knowledge 30.9% &gt; code-read 11.6% &gt; none 1.5% divergence on Dart; self-acquired knowledge raises Kotlin divergence from 50.0% to 67.1%.</p>
+    <div class="acts"><a href="https://doi.org/10.5281/zenodo.23002933">Preprint</a><a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.23003263">Software DOI</a></div>
+  </div>
+  <div class="pub">
+    <span class="venue">AST 2027 (co-located with ICSE) · under review</span>
+    <h3>Beyond Sanitizers: LLM-Guided Refinement for Differential JSON Deserialization Testing in Dart</h3>
+    <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
+    <p class="find">The bottleneck is domain knowledge, not search; found silent integer saturation in 5.7% of 43,336 checks, now documented upstream.</p>
+    <div class="acts"><a href="https://doi.org/10.5281/zenodo.22555794">Preprint</a><a href="https://github.com/ziyadmansy/agentic-fuzzing-dart-json">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22544011">Software DOI</a></div>
+  </div>
+  <div class="pub">
+    <span class="venue">FORGE 2027 (co-located with ICSE) · under review</span>
+    <h3>Coverage-Free Fuzzing: LLM-Guided Refinement of Grammar-Based Test Generators</h3>
+    <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
+    <p class="find">Black-box LLM refinement raised cJSON acceptance from 58.2% to 97.1% with no coverage signal, and a pre-registered replication showed when the approach fails.</p>
+    <div class="acts"><a href="https://doi.org/10.5281/zenodo.22556342">Preprint</a><a href="https://github.com/ziyadmansy/agentic-grammar-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22231288">Software DOI</a></div>
+  </div>
+</section>
+
+<section id="impact">
+  <h2>Open Source and Upstream Impact</h2>
+  <ul class="plain">
+    <li><span class="hl">Google json_serializable:</span> found that it silently caps out-of-range integers and turns 1.9 into 1; the maintainer confirmed my analysis and merged my documentation fix (<a href="https://github.com/google/json_serializable.dart/issues/1591">#1591</a>, <a href="https://github.com/google/json_serializable.dart/pull/1592">PR #1592</a>).</li>
+    <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty; the maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178">dart-lang/build#5178</a>).</li>
+    <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a standalone reproducer, that strict mode accepts control characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276">#3276</a>).</li>
+    <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with 250K+ monthly downloads, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431">PR #431</a>).</li>
+  </ul>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – present</span>
+    <span class="where">Remote · conducted while employed full-time</span></div>
+  <div class="item"><h3>Senior Mobile Software Engineer, Naveera Tech</h3><span class="when">May 2026 – present</span>
+    <span class="where">Remote (US)</span>
+    <ul><li>Shipped a stalled HIPAA-compliant fleet platform to both app stores in one month; it now handles thousands of trips a day for hundreds of US organizations on an offline-first architecture I designed.</li></ul></div>
+  <div class="item"><h3>Senior Mobile Software Engineer, Focal Agent</h3><span class="when">Aug 2024 – Apr 2026</span>
+    <span class="where">Remote (UK)</span>
+    <ul><li>Delivered AI features for PropertyBox, a real-estate platform used across the UK, Europe and the UAE, and led the team's sessions on AI-assisted development.</li></ul></div>
+  <div class="item"><h3>Lead Mobile Software Engineer, Madfu (BNPL fintech)</h3><span class="when">Jan 2023 – Jul 2024</span>
+    <span class="where">Remote (Saudi Arabia)</span>
+    <ul><li>Led 3 engineers on consumer (100K+ downloads) and merchant apps of a payments platform licensed by the Saudi Central Bank.</li>
+        <li>Closed every finding from recurring third-party penetration tests, with zero production security incidents.</li>
+        <li>Built the team's quality process from scratch: mandatory code review, a shared component library and test-driven development.</li></ul></div>
+  <div class="item"><h3>Senior Mobile Software Engineer, Assas IT Solutions</h3><span class="when">Jan 2022 – Dec 2022</span>
+    <span class="where">Remote (Saudi Arabia)</span>
+    <ul><li>Built core features of Tahara, ranked #2 in Health &amp; Fitness on the Saudi App Store (100K+ downloads, 4.6★).</li></ul></div>
+  <div class="item"><h3>Founding Mobile Software Engineer, Talmaro</h3><span class="when">Mar 2021 – Dec 2021</span>
+    <span class="where">Remote (UAE)</span>
+    <ul><li>Built and shipped an enterprise HR app from scratch as the first mobile engineer (10K+ downloads).</li></ul></div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="item"><h3>B.Sc. in Engineering and Technology, Computer Engineering and Information Technology</h3><span class="when">2017 – 2022</span>
+    <span class="where">Modern Academy for Engineering and Technology, Cairo, Egypt · Electrical Engineering, 5-year program</span>
+    <ul><li><span class="hl">Ranked 1st of ~200</span> in cohort · Grade: Excellent · CGPA 3.535/4.00 (90.03%) · WES U.S.-equivalent GPA 3.71/4.00</li>
+        <li>Graduation project (Grade A+, team leader): Flutter and Unity3D app for real-scale AR furniture placement, with systematic cross-device testing.</li>
+        <li>Led and delivered the presentations in the B.Sc. seminar courses (Seminar I: A+).</li></ul></div>
+</section>
+
+<section id="teaching">
+  <h2>Leadership and Teaching</h2>
+  <ul class="plain">
+    <li>Run recurring online sessions teaching engineering colleagues to use AI coding tools (2024 – present).</li>
+    <li>Led and mentored a team of 3 engineers at Madfu, introducing code review and test-driven development.</li>
+  </ul>
+</section>
+</main>
+
+<footer><div class="wrap">
+  © 2026 Ziyad Mohammad Mansy Ibrahim · <a href="mailto:ziyadmohammad37@gmail.com">ziyadmohammad37@gmail.com</a>
+</div></footer>
+</body>
+</html>

@@ -171,11 +171,12 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 
 <section id="directions">
   <h2>What I Want to Work On</h2>
-  <p>My results point to three directions for my Ph.D., each aimed at testing tools that practitioners can trust on the software they ship:</p>
+  <p>I want to spend my Ph.D. answering one central question: <span class="hl">How can automated testing catch bugs and security vulnerabilities before attackers exploit them or users pay for them, including silent failures that never crash, while giving developers a short list of real defects they can act on?</span></p>
+  <p>Generating test inputs is not the hard part of this question. Knowing what the output should have been is, and that is the oracle problem. A crash gives a free answer, but the failures I care about most never crash. My results point to three directions:</p>
   <ul class="plain dirs">
-    <li><span class="hl">Testing agents that know what they don't know.</span> My agents learned only what their experiments reached, and reported silence as safety. I want agents that combine reading code with targeted experiments, plan those experiments around what could go wrong, and report what they did not check, so that a gap in testing is never mistaken for a clean result.</li>
-    <li><span class="hl">Oracles for failures that don't crash.</span> Many serious failures corrupt data instead of crashing: a payment amount rounded, a malformed token accepted, a protection present on Android but missing on iOS. I want differential and metamorphic oracles that catch these across libraries, platforms and app versions.</li>
-    <li><span class="hl">Evidence that a finding is real.</span> Most of the disagreements I triaged were intended behavior. I want tools that rank each finding by independent evidence, such as what the documentation promises, whether the value reaches something sensitive and how developers fixed similar issues before, so developers see the few real defects instead of hundreds of differences.</li>
+    <li><span class="hl">Testing agents that know what they have not checked.</span> My agents learned only from the cases they tested, so finding no problem could simply mean they had not reached the right case. I want agents that read the code to find what could go wrong, aim their experiments at those gaps and report what they still have not checked.</li>
+    <li><span class="hl">Finding failures when there is no expected answer.</span> Some serious bugs do not crash the program, such as a rounded payment amount or a security protection that works on Android but not on iOS. I want to use differential and metamorphic testing to find these failures by comparing related executions across libraries, platforms and app versions.</li>
+    <li><span class="hl">Knowing when a finding is actually a bug.</span> In my testing, many differences between implementations turned out to be intended behavior. I want tools that use the specification, the other implementations and how the data is used to decide which differences are real bugs, especially when the behavior affects security or important data.</li>
   </ul>
 </section>
 

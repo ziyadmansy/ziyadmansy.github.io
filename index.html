@@ -100,7 +100,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <body>
 <nav><div class="wrap">
   <span class="brand">Ziyad Mansy</span>
-  <a href="#education">Education</a><a href="#news">News</a><a href="#research">Research</a><a href="#directions">Directions</a><a href="#publications">Publications</a><a href="#experience">Research Exp.</a><a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#teaching">Leadership</a><a href="#industry">Industry</a><a href="#skills">Skills</a>
+  <a href="#education">Education</a><a href="#news">News</a><a href="#directions">Directions</a><a href="#publications">Publications</a><a href="#experience">Research</a><a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#teaching">Leadership</a><a href="#industry">Industry</a><a href="#skills">Skills</a>
   <a href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV</a>
 </div></nav>
 
@@ -126,12 +126,12 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 
 <section id="about">
   <h2>About</h2>
-  <p>My goal is automated testing that catches bugs and security vulnerabilities before attackers exploit them or users pay for them, especially <span class="hl">silent failures that never crash</span>, and gives developers a short list of real defects to fix instead of a flood of false alarms. My current work asks how LLM-based testing agents acquire the domain knowledge they need, how to build test oracles for software without reliable crash signals, and how differential testing can expose behavior that no single implementation reveals.</p>
-  <p>In 2026 I turned a research challenge into three sole-authored studies on LLM-guided fuzzing, all now under review, while working full-time as a senior engineer. Along the way my findings led Google-maintained libraries to document behavior that silently changed data, including a documentation fix of mine that was merged into <a href="https://github.com/google/json_serializable.dart/pull/1592">json_serializable</a>.</p>
-  <p>Before research, I spent five years shipping Android, iOS and Flutter apps in regulated domains: a payments platform licensed by the Saudi Central Bank, where I led the team that closed every penetration-test finding with zero production security incidents, and HIPAA-compliant transportation apps handling thousands of trips a day in the US. I graduated <span class="hl">first of ~200</span> in Computer Engineering.</p>
+  <p>I want automated testing to find bugs and security flaws before software ships, especially <span class="hl">silent failures</span> that give wrong results without crashing, and to report real problems instead of false alarms. My current work asks what knowledge AI testing agents need to find these failures, and how to tell a result is wrong when nothing crashes.</p>
+  <p>In 2026, while working full-time as a senior engineer, I turned a research challenge into three sole-authored studies on LLM-guided fuzzing (using LLMs to steer automatic test generation), all now under review. The work led two Google libraries to document behavior that silently changed data, including through a documentation fix of mine merged into <a href="https://github.com/google/json_serializable.dart/pull/1592">json_serializable</a>.</p>
+  <p>Before research, I spent five years shipping Android, iOS and Flutter apps in regulated fields. At a payments platform licensed by the Saudi Central Bank, I led the team that closed every penetration-test finding, with zero production security incidents. Today I build HIPAA-compliant transportation apps that handle thousands of trips a day in the US. I graduated <span class="hl">first of ~200</span> in Computer Engineering.</p>
   <div class="stats">
     <div class="stat"><b>3</b><span>sole-authored papers under review at ICST, AST and FORGE 2027</span></div>
-    <div class="stat"><b>18M+</b><span>monthly downloads of two Google libraries where I found silent data loss, now documented upstream, one through my merged PR</span></div>
+    <div class="stat"><b>18M+</b><span>monthly downloads of two Google libraries where I found silent data loss, now documented</span></div>
     <div class="stat"><b>1st</b><span>of ~200 in my graduating class, with a 3.98/4.00 GPA in my first year</span></div>
     <div class="stat"><b>100%</b><span>of penetration-test findings closed every round at a central-bank-licensed fintech, with no security incidents</span></div>
   </div>
@@ -158,25 +158,15 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   </ul>
 </section>
 
-<section id="research">
-  <h2>Research</h2>
-  <p>My research started with a fuzzing challenge that Dr. Marcelo D'Amorim (NC State) set for prospective Ph.D. applicants; my solution passed and I was one of about 20 of 70 applicants invited to a Q&amp;A session. Each study since has answered the question the previous one left open:</p>
-  <ul class="plain">
-    <li><span class="hl">Can an LLM improve a fuzzer without seeing inside the target?</span> Yes on cJSON (58.2% → 97.1% valid inputs), but a pre-registered replication on a second parser reversed the effect, and I traced every rejected input to its cause.</li>
-    <li><span class="hl">What happens when there is no crash to detect?</span> A differential oracle across four Dart deserializers showed the LLM loop lagged a static generator 2.9% vs. 22.2%; four facts of domain knowledge closed the gap entirely.</li>
-    <li><span class="hl">Can the fuzzer acquire that knowledge itself?</span> A pre-registered study across Dart and Kotlin found self-acquired knowledge helps where interesting behavior is dense (50% → 67%, 82% with systematic probing) and misses it where it is narrow.</li>
-  </ul>
-  <p>All code, data and per-run artifacts are public, with designs committed before any data and every deviation logged.</p>
-</section>
 
 <section id="directions">
   <h2>What I Want to Work On</h2>
   <p>I want to spend my Ph.D. answering one central question: <span class="hl">How can automated testing catch bugs and security vulnerabilities before attackers exploit them or users pay for them, including silent failures that never crash, while giving developers a short list of real defects they can act on?</span></p>
-  <p>Generating test inputs is not the hard part of this question. Knowing what the output should have been is, and that is the oracle problem. A crash gives a free answer, but the failures I care about most never crash. My results point to three directions:</p>
+  <p>Creating test inputs is the easy part. The hard part is knowing what the right output should have been, known as the oracle problem. A crash makes that obvious, but the failures I care about most never crash. My results point to three directions:</p>
   <ul class="plain dirs">
     <li><span class="hl">Testing agents that know what they have not checked.</span> My agents learned only from the cases they tested, so finding no problem could simply mean they had not reached the right case. I want agents that read the code to find what could go wrong, aim their experiments at those gaps and report what they still have not checked.</li>
-    <li><span class="hl">Finding failures when there is no expected answer.</span> Some serious bugs do not crash the program, such as a rounded payment amount or a security protection that works on Android but not on iOS. I want to use differential and metamorphic testing to find these failures by comparing related executions across libraries, platforms and app versions.</li>
-    <li><span class="hl">Knowing when a finding is actually a bug.</span> In my testing, many differences between implementations turned out to be intended behavior. I want tools that use the specification, the other implementations and how the data is used to decide which differences are real bugs, especially when the behavior affects security or important data.</li>
+    <li><span class="hl">Finding failures when there is no expected answer.</span> Some serious bugs do not crash the program, such as a rounded payment amount or a security protection that works on Android but not on iOS. I want to find them with differential and metamorphic testing: checking how the same input behaves across libraries, platforms and app versions.</li>
+    <li><span class="hl">Knowing when a finding is actually a bug.</span> Many differences I found between libraries turned out to be intended behavior. I want tools that use the specification, other implementations and how the data is used to decide which differences are real bugs, especially when security or important data is at stake.</li>
   </ul>
 </section>
 
@@ -186,7 +176,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <span class="venue">ICST 2027 · under review</span>
     <h3>Where Does an LLM Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
-    <p class="find">Human knowledge 30.9% &gt; code-read 11.6% &gt; none 1.5% divergence on Dart; self-acquired knowledge raises Kotlin divergence from 50.0% to 67.1%.</p>
+    <p class="find">In Dart, knowledge written by a person worked best (30.9% of inputs exposed disagreements, vs. 11.6% from reading code and 1.5% with none); in Kotlin, an agent's own experiments raised the rate from 50% to 67%.</p>
     <div class="acts"><a href="https://doi.org/10.5281/zenodo.23002933">Preprint</a><a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.23003263">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026knowledge,
   author = {Ibrahim, Ziyad Mohammad Mansy},
   title  = {Where Does an {LLM} Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers},
@@ -199,7 +189,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <span class="venue">AST 2027 (co-located with ICSE) · under review</span>
     <h3>Beyond Sanitizers: LLM-Guided Refinement for Differential JSON Deserialization Testing in Dart</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
-    <p class="find">The bottleneck is domain knowledge, not search; found silent integer saturation in 5.7% of 43,336 checks, now documented upstream.</p>
+    <p class="find">Found silent data errors in 5.7% of 43,336 checks; missing domain knowledge, not search, was what held the LLM fuzzer back.</p>
     <div class="acts"><a href="https://doi.org/10.5281/zenodo.22555794">Preprint</a><a href="https://github.com/ziyadmansy/agentic-fuzzing-dart-json">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22544011">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026beyond,
   author = {Ibrahim, Ziyad Mohammad Mansy},
   title  = {Beyond Sanitizers: {LLM}-Guided Refinement for Differential {JSON} Deserialization Testing in {Dart}},
@@ -212,7 +202,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <span class="venue">FORGE 2027 (co-located with ICSE) · under review</span>
     <h3>Coverage-Free Fuzzing: LLM-Guided Refinement of Grammar-Based Test Generators</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
-    <p class="find">Black-box LLM refinement raised cJSON acceptance from 58.2% to 97.1% with no coverage signal, and a pre-registered replication showed when the approach fails.</p>
+    <p class="find">Without seeing the target's code, LLM refinement raised valid cJSON inputs from 58% to 97%; a pre-registered replication showed where the approach fails.</p>
     <div class="acts"><a href="https://doi.org/10.5281/zenodo.22556342">Preprint</a><a href="https://github.com/ziyadmansy/agentic-grammar-fuzzing">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22231288">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026coverage,
   author = {Ibrahim, Ziyad Mohammad Mansy},
   title  = {Coverage-Free Fuzzing: {LLM}-Guided Refinement of Grammar-Based Test Generators},
@@ -226,16 +216,16 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <section id="experience">
   <h2>Research Experience</h2>
   <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – Present</span>
-    <span class="where">Three sole-authored studies, all under review (see <a href="#publications">Publications</a>). Started from a fuzzing challenge Dr. Marcelo D'Amorim (NC State) set for prospective Ph.D. applicants; each study since has picked up the question the previous one left open.</span>
+    <span class="where">Three sole-authored studies, all under review (see <a href="#publications">Publications</a>). It began with a fuzzing challenge Dr. Marcelo D'Amorim (NC State) set for about 70 prospective Ph.D. applicants; my solution passed, and I was one of about 20 invited to a Q&amp;A session. Each study answers a question the previous one raised.</span>
     <ul>
-      <li><span class="hl">Fuzzing without seeing inside (<a href="https://doi.org/10.5281/zenodo.22556342">FORGE</a>).</span> Most fuzzers improve by measuring which code their inputs reach, but many real targets, such as closed binaries, cannot be measured this way. I built a pipeline in which an LLM improves a grammar-based test generator using only what the target shows from outside, with every line it writes run in a sandbox first. On cJSON, a C parser with 13,000+ GitHub stars, valid inputs rose from 58% to 97%, and every improved run beat every baseline run. A pre-registered repeat on a second parser reversed the effect, and I traced every rejected input to its cause: that parser rejects valid JSON without saying why, so the LLM had nothing to learn from. <em>Lesson: feedback is only as useful as what the target is willing to tell you.</em></li>
-      <li><span class="hl">Failures that never crash (<a href="https://doi.org/10.5281/zenodo.22555794">AST</a>).</span> The libraries that turn JSON into data in Flutter apps rarely crash; they fail silently by changing a value. I built two checks that need no crash: one flags any input on which four widely used Dart decoders disagree, and the other compares every decoded number with its source text. My LLM-guided fuzzer found disagreements in only 2.9% of inputs, against 22.2% for a simple generator I wrote. Four possible explanations did not close the gap, but four facts from my own manual analysis raised the fuzzer to 28.8%. <em>Lesson: the bottleneck was domain knowledge, not search.</em> The same work found silent data loss in Google's json_serializable and built_value, both now documented upstream, one through my merged fix.</li>
-      <li><span class="hl">Can the fuzzer learn what it needs? (<a href="https://doi.org/10.5281/zenodo.23002933">ICST</a>).</span> If knowledge was the bottleneck, could an AI agent gather it by itself? In a pre-registered study on eight JSON libraries in Dart and Kotlin, I kept the fuzzer the same and changed only the knowledge it was given: nothing, my own facts, or a summary from an agent that either read the libraries' code or ran its own experiments. Over 55 seeded runs (83,500 test inputs), human-written facts worked best (30.9% of inputs exposed a disagreement, against 1.5% with no knowledge). Where disagreements were common, the experimenting agent raised the rate from 50% to 67%, and to 82% with a checklist I added; where they were rare, its experiments never reached them and it reported that the libraries agreed when they did not. <em>Lesson: an agent's knowledge is only as good as the experiments it chooses to run.</em> Checking every disagreement by hand, I also reported a JSON standards violation in JetBrains' kotlinx.serialization.</li>
-      <li><span class="hl">Open science:</span> every study fixed its design before collecting data, used seeded runs and exact statistical tests, and released all code, prompts and results with a software DOI, so every reported number can be recomputed.</li>
+      <li><span class="hl">Can an LLM improve a fuzzer without seeing the target's code? (<a href="https://doi.org/10.5281/zenodo.22556342">FORGE</a>)</span> I built a fuzzer in which an LLM improves its test generator using only how the target responds from outside. On cJSON, a C parser with 13K+ GitHub stars, valid inputs rose from 58% to 97%. On a second parser it failed, because that parser rejects inputs without saying why. <em>Lesson: feedback is only as useful as what the target tells you.</em></li>
+      <li><span class="hl">How do you find bugs that never crash? (<a href="https://doi.org/10.5281/zenodo.22555794">AST</a>)</span> JSON libraries in Flutter apps rarely crash; they silently change values. I compared four common ways to decode JSON in Dart and checked each decoded number against the original text. The LLM fuzzer first trailed a simple generator (2.9% vs. 22.2%); four facts about the libraries raised it to 28.8%. <em>Lesson: what the fuzzer lacked was knowledge, not more searching.</em> This work found silent data loss in Google's json_serializable and built_value, both now documented.</li>
+      <li><span class="hl">Can an AI agent learn that knowledge itself? (<a href="https://doi.org/10.5281/zenodo.23002933">ICST</a>)</span> On eight JSON libraries in Dart and Kotlin, I gave the same fuzzer knowledge from three sources: written by me, read from the libraries' code, or learned by an agent through its own experiments. Knowledge written by a person worked best (30.9% of inputs exposed disagreements, vs. 1.5% with none). The experimenting agent helped where problems were common (50% to 67%) but missed rare ones and wrongly concluded the libraries agreed. <em>Lesson: an agent only knows what its experiments reach.</em> I also reported a JSON standards violation in JetBrains' kotlinx.serialization.</li>
+      <li><span class="hl">Open science:</span> released all code, prompts and results with software DOIs, so every number can be rechecked; the key experiments were pre-registered before any data was collected.</li>
     </ul></div>
   <div class="item"><h3>Undergraduate Researcher, Breast Tumor Classification</h3><span class="when">2021 – 2022</span>
     <span class="where">Modern Academy for Engineering and Technology · Advisor: <a href="https://scholar.google.com/citations?user=xq7chGkAAAAJ">Dr. Manar Donia</a></span>
-    <ul><li>Trained a TensorFlow transfer-learning classifier on 5,000+ benign and malignant breast-tumor scans, with OpenCV preprocessing.</li><li>Deployed the model on-device with TensorFlow Lite in a Flutter app that classifies a user's scan as benign or malignant fully offline and presents the result with related medical information, taking the model from training to a working application.</li></ul></div>
+    <ul><li>Trained a TensorFlow transfer-learning classifier on 5,000+ benign and malignant breast-tumor scans, with OpenCV preprocessing.</li><li>Deployed the model in a Flutter app with TensorFlow Lite that classifies a scan fully offline and shows related medical information.</li></ul></div>
 </section>
 
 <section id="impact">
@@ -245,8 +235,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty; the maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178">dart-lang/build#5178</a>).</li>
     <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a standalone reproducer, that strict mode accepts control characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276">#3276</a>).</li>
     <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with 320K+ monthly downloads, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431">PR #431</a>).</li>
-    <li><span class="hl">LLVM:</span> verified and isolated an AddressSanitizer startup hang on macOS in an upstream issue, showing LLVM 23.1.0 unaffected in the same environment (<a href="https://github.com/llvm/llvm-project/issues/200447">#200447</a>).</li>
-    <li><span class="hl">Reproducible research:</span> released code, datasets and reproduction instructions for all three studies with Zenodo software DOIs; the third study and the parson replication were pre-registered, with designs committed before any data and every later change logged.</li>
+    <li><span class="hl">LLVM:</span> isolated an AddressSanitizer hang on macOS and showed that LLVM 23.1.0 is unaffected (<a href="https://github.com/llvm/llvm-project/issues/200447">#200447</a>).</li>
     <li><span class="hl">Community:</span> 3,000+ GitHub contributions across 50+ repositories; <a href="https://stackoverflow.com/users/14139092/ziyad-mansy">Stack Overflow</a> top 8% (2021); developer articles on <a href="https://medium.com/@ziyadmohammad37">Medium</a>.</li>
   </ul>
 </section>
@@ -261,13 +250,14 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <section id="teaching">
   <h2>Leadership and Teaching</h2>
   <ul class="plain">
-    <li><span class="hl">Engineering team lead, Madfu (2023 – 2024):</span> led and mentored 3 senior Flutter engineers through the delivery of the consumer and merchant POS apps (100K+ downloads) for a central-bank-licensed fintech; built the team's quality process from nothing (mandatory code review, a shared component library and test-driven development), which reduced bugs and shortened release cycles; owned and coordinated the fixes for every third-party penetration-test round, keeping production free of security incidents.</li>
+    <li><span class="hl">Engineering team lead, Madfu (2023 – 2024):</span> led and mentored 3 senior Flutter engineers through delivery of the consumer and merchant POS apps (100K+ downloads); built the team's quality process from nothing and coordinated the fixes for every penetration-test round, with zero production security incidents.</li>
+    <li><span class="hl">Mentoring, Assas IT Solutions (2022):</span> mentored junior Flutter engineers through Tahara's path to production.</li>
     <li><span class="hl">AI-assisted development sessions, Focal Agent (2025 – 2026):</span> ran recurring online sessions teaching engineering colleagues to use AI coding tools in their daily work.</li>
     <li><span class="hl">Technical ownership, Naveera Tech (2026 – Present):</span> took ownership of a fleet-operations platform that had gone 9 months without a release, and shipped it to both app stores within one month of joining; designed its offline-first architecture and own its testing end to end.</li>
     <li><span class="hl">Founding mobile engineer, Talmaro (2021):</span> joined as the company's first mobile engineer, set up its mobile development from zero, and shipped its enterprise HR app to three app stores, reaching 10K+ downloads.</li>
-    <li><span class="hl">Graduation project team leader:</span> led the team to an A+, the highest grade: planned and coordinated tasks and deadlines, guided and taught teammates, served as the team's point of contact with our advisor, Prof. Abdelmoneim Fouda, and prepared the deliverables and presentations.</li>
+    <li><span class="hl">Graduation project team leader:</span> led the team to an A+: planned tasks and deadlines, taught teammates and was the team's point of contact with our advisor, Prof. Abdelmoneim Fouda.</li>
     <li><span class="hl">Peer study guides:</span> wrote a study guide for every course before each final exam, condensing each subject into the rules and topics needed to succeed; my cohort relied on them to prepare.</li>
-    <li><span class="hl">Seminar presentations:</span> led my team in preparing and delivering the B.Sc. seminar presentations (Seminar I: A+) on topics we chose, from artificial intelligence and the mechanical engineering of how cars work to a range of software topics.</li>
+    <li><span class="hl">Presentations:</span> led my team in preparing and delivering our seminar presentations (Seminar I: A+); presented our graduation project at its final defense before a committee that included external examiners.</li>
   </ul>
 </section>
 

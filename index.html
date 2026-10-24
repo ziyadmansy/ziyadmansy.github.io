@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ziyad Mansy · Software Testing &amp; Security Research</title>
-<meta name="description" content="Ziyad Mohammad Mansy Ibrahim: independent researcher in LLM-guided software testing, fuzzing and differential testing, and senior mobile software engineer. Applying to Ph.D. programs for Fall 2027.">
+<meta name="description" content="Ziyad Mohammad Mansy Ibrahim builds automated testing that catches the bugs people miss, especially silent failures that never crash. Three sole-authored papers under review. Applying to Ph.D. programs for Fall 2027.">
 <meta name="author" content="Ziyad Mohammad Mansy Ibrahim">
 <meta property="og:title" content="Ziyad Mansy · Software Testing & Security Research">
-<meta property="og:description" content="LLM-guided fuzzing, test oracles for silent failures, differential testing. Three sole-authored papers under review (ICST, AST, FORGE 2027).">
+<meta property="og:description" content="Automated testing for the bugs people miss, especially silent failures that never crash. Three sole-authored papers under review at ICST, AST and FORGE 2027.">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/44037432?v=4">
 <meta property="og:type" content="profile">
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
@@ -26,15 +26,21 @@
 :root{
   --bg:#fbfbf9; --surface:#ffffff; --ink:#1b1f24; --muted:#5b6470; --line:#e4e6ea;
   --accent:#1a3361; --accent-2:#2f5fb3; --chip:#eef2f9; --good:#1f6f43;
+  --bad:#b42525; --bad-bg:#fdeeee; --good-bg:#eaf6ef;
+  --bar-hi:#2f5fb3; --bar-lo:#9aa3b0; --grid:#e1e0d9;
   --serif:"Source Serif 4",Georgia,serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
 }
-:root{color-scheme:light}
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){--bg:#0f1216; --surface:#161a20; --ink:#e7eaee; --muted:#a2abb7; --line:#262c35;
-        --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2; color-scheme:dark}
+        --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2;
+        --bad:#f08a8a; --bad-bg:#2a1719; --good-bg:#14261c;
+        --bar-hi:#3987e5; --bar-lo:#5b6575; --grid:#2c2c2a; color-scheme:dark}
 }
 :root[data-theme="dark"]{--bg:#0f1216; --surface:#161a20; --ink:#e7eaee; --muted:#a2abb7; --line:#262c35;
-        --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2; color-scheme:dark}
+        --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2;
+        --bad:#f08a8a; --bad-bg:#2a1719; --good-bg:#14261c;
+        --bar-hi:#3987e5; --bar-lo:#5b6575; --grid:#2c2c2a; color-scheme:dark}
 .theme-toggle{flex:none;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0}
 .theme-toggle:hover{border-color:var(--accent-2);color:var(--accent-2)}
 .theme-toggle svg{width:17px;height:17px}
@@ -50,72 +56,148 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:var(--accent-2);text-decoration:none;border-bottom:1px solid transparent}
 a:hover{border-bottom-color:currentColor}
-.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
 nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;gap:12px;align-items:center;height:52px}
-.navlinks{display:flex;gap:12px;align-items:center;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+nav .wrap{display:flex;gap:12px;align-items:center;height:52px;max-width:1180px}
+.navlinks{display:flex;gap:14px;align-items:center;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .navlinks::-webkit-scrollbar{display:none}
 nav .brand{flex:none;font-weight:700;color:var(--ink);margin-right:auto}
 nav a{color:var(--muted);font-size:13px;font-weight:500}
-nav .wrap{max-width:1180px}
 nav a:hover{color:var(--ink)}
-header{padding:56px 0 28px}
+header{padding:52px 0 26px}
 .hero{display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:center}
 .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--surface);box-shadow:0 2px 14px rgba(0,0,0,.12)}
-h1{font:700 2.3rem/1.15 var(--serif);margin:0 0 6px;color:var(--accent)}
-.tag{font-size:1.05rem;color:var(--muted);margin:0 0 14px}
+h1{font:700 2.3rem/1.15 var(--serif);margin:0 0 8px;color:var(--accent)}
+.tag{font-size:1.12rem;line-height:1.5;color:var(--ink);margin:0 0 6px}
+.sub{font-size:.98rem;color:var(--muted);margin:0 0 14px}
 .badge{display:inline-block;background:var(--chip);color:var(--accent);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:14px}
 .links{display:flex;flex-wrap:wrap;gap:8px}
 .links a{border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;font-weight:500;padding:6px 12px;border-radius:8px}
 .links a:hover{border-color:var(--accent-2);color:var(--accent-2)}
 .links a.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .links a.primary:hover{opacity:.9;color:var(--bg)}
-section{padding:26px 0;border-top:1px solid var(--line);scroll-margin-top:60px}
-h2{font:700 1.45rem/1.3 var(--serif);margin:0 0 16px;color:var(--accent)}
+section{padding:30px 0;border-top:1px solid var(--line);scroll-margin-top:60px}
+h2{font:700 1.5rem/1.3 var(--serif);margin:0 0 6px;color:var(--accent)}
+.lede{color:var(--muted);margin:0 0 18px;font-size:1rem}
+h3{font-size:1.05rem;line-height:1.4;margin:0 0 6px}
 p{margin:0 0 12px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 4px}
+.hl{font-weight:600}
+.small{font-size:13px;color:var(--muted)}
+
+/* one-minute cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card .k{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2);margin-bottom:6px}
+.card p{margin:0;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 0}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
-.stat b{display:block;font:700 1.5rem/1.1 var(--serif);color:var(--accent)}
+.stat b{display:block;font:700 1.55rem/1.1 var(--sans);color:var(--accent)}
 .stat span{font-size:13px;color:var(--muted)}
-ul.news{list-style:none;padding:0;margin:0}
-ul.news li{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:6px 0}
-ul.news time{color:var(--muted);font-size:14px;font-weight:600}
+
+/* silent failure figure */
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin:8px 0 14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.box .cap{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.box code{display:inline-block;font:600 15px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--chip);color:var(--ink);padding:6px 10px;border-radius:8px}
+.box p{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.arrow{align-self:center;color:var(--muted);font-size:22px;line-height:1}
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px}
+.check{border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600;display:flex;gap:8px;align-items:flex-start}
+.check.ok{background:var(--good-bg);color:var(--good)}
+.check.no{background:var(--bad-bg);color:var(--bad)}
+.check .i{flex:none;font-weight:700}
+.note{background:var(--chip);border-radius:12px;padding:14px 16px;font-size:15px}
+
+/* timeline */
+.timeline{list-style:none;margin:6px 0 18px;padding:0;position:relative}
+.timeline:before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 16px 34px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li:before{content:"";position:absolute;left:3px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--accent-2)}
+.timeline li.alert:before{border-color:var(--bad);background:var(--bad)}
+.timeline li.fix:before{border-color:var(--good);background:var(--good)}
+.timeline time{display:block;font-size:13px;font-weight:700;color:var(--accent-2)}
+.timeline li.alert time{color:var(--bad)}
+.timeline li.fix time{color:var(--good)}
+.timeline p{margin:2px 0 0;font-size:15px}
+.lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lessons .card p{font-size:14px}
+
+/* research story */
+.step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:26px}
+.step:not(:last-of-type):after{content:"↓";position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);color:var(--muted);font-size:18px;line-height:1}
+.step .num{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-2);margin-bottom:4px}
+.step h3{font:700 1.2rem/1.35 var(--serif);color:var(--accent);margin:0 0 10px}
+.step .lbl{font-weight:700}
+.lesson{border-left:3px solid var(--accent-2);padding:4px 0 4px 12px;margin:12px 0 0;font-size:15px}
+
+/* bar charts (emphasis form: one accent, gray context, direct labels) */
+.chart{margin:12px 0 16px}
+.chart .ct{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 8px}
+.bar-row{display:grid;grid-template-columns:minmax(120px,36%) 1fr;gap:10px;align-items:center;margin:6px 0}
+.bar-label{font-size:14px;line-height:1.3;color:var(--ink)}
+.bar-track{position:relative;height:22px;border-left:1px solid var(--grid)}
+.bar{position:absolute;left:0;top:2px;height:18px;width:calc(var(--v) * 0.8%);background:var(--bar-lo);border-radius:0 4px 4px 0}
+.bar.hi{background:var(--bar-hi)}
+.bar-val{position:absolute;top:0;left:calc(var(--v) * 0.8% + 8px);font-size:14px;font-weight:600;line-height:22px;color:var(--ink);white-space:nowrap}
+.bar-row:hover .bar{filter:brightness(1.08)}
+.charts2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* papers */
 .pub{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px}
 .pub .venue{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--accent);background:var(--chip);padding:2px 8px;border-radius:6px;margin-bottom:6px}
-.pub h3{font-size:1.02rem;line-height:1.4;margin:0 0 4px}
+.pub h3{font-size:1.02rem;margin:0 0 4px}
 .pub .auth{color:var(--muted);font-size:14px;margin:0 0 8px}
-.pub .find{font-size:15px;margin:0 0 8px}
+.pub .plain{font-size:15px;margin:0 0 6px}
+.pub .find{font-size:14px;color:var(--muted);margin:0 0 8px}
 .pub .acts a{font-size:13px;font-weight:600;margin-right:12px}
-.item{display:grid;grid-template-columns:1fr auto;gap:4px 16px;margin-bottom:16px}
-.item h3{font-size:1rem;margin:0}
-.item .when{color:var(--muted);font-size:14px;white-space:nowrap}
-.item .where{grid-column:1/-1;color:var(--muted);font-size:14px;margin-top:-2px}
-.item ul{grid-column:1/-1;margin:4px 0 0;padding-left:20px}
-.item li{margin:2px 0}
-ul.plain{padding-left:20px;margin:0}
-ul.plain li{margin:4px 0}
-.hl{font-weight:600}
 .pub details{display:inline-block;margin-top:2px}
 .pub summary{display:inline;cursor:pointer;font-size:13px;font-weight:600;color:var(--accent-2);list-style:none}
 .pub summary::-webkit-details-marker{display:none}
 .pub pre{white-space:pre-wrap;word-break:break-word;font-size:12px;background:var(--chip);border-radius:8px;padding:10px 12px;margin:8px 0 0}
-.dirs li{margin:6px 0}
-.updated{font-size:12px;opacity:.85}
+
+/* lists, items */
+ul.plain{padding-left:20px;margin:0}
+ul.plain li{margin:6px 0}
+.dir{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:12px}
+.dir h3{margin-bottom:4px}
+.dir p{margin:0;font-size:15px}
+.how{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+ul.news{list-style:none;padding:0;margin:0}
+ul.news li{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:5px 0}
+ul.news time{color:var(--muted);font-size:14px;font-weight:600}
+.item{margin-bottom:14px}
+.item .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.item h3{font-size:1rem;margin:0}
+.item .when{color:var(--muted);font-size:14px;white-space:nowrap}
+.item .one{margin:2px 0 0;font-size:15px}
+.item details{margin-top:4px}
+.item summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent-2)}
+.item ul{margin:6px 0 0;padding-left:20px;font-size:15px}
+.item li{margin:3px 0}
+.sources{font-size:13px;color:var(--muted);margin:10px 0 0}
 footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:720px){
+  .flow{grid-template-columns:1fr}
+  .arrow{transform:rotate(90deg);justify-self:center}
+  .checks,.lessons{grid-template-columns:1fr}
+  .charts2{grid-template-columns:1fr}
+}
 @media (max-width:640px){
-  .hero{grid-template-columns:1fr;text-align:left}
+  .hero{grid-template-columns:1fr}
   .hero img{width:104px;height:104px}
   h1{font-size:1.9rem}
+  .cards,.how{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   ul.news li{grid-template-columns:1fr;gap:0}
-  .item{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:1fr;gap:2px}
 }
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <span class="brand">Ziyad Mansy</span>
-  <div class="navlinks"><a href="#education">Education</a><a href="#news">News</a><a href="#directions">Directions</a><a href="#publications">Publications</a><a href="#experience">Research</a><a href="#impact">Open Source</a><a href="#honors">Honors</a><a href="#teaching">Leadership</a><a href="#industry">Industry</a><a href="#skills">Skills</a>
+  <div class="navlinks"><a href="#problem">The problem</a><a href="#why-now">Why now</a><a href="#research">Research</a><a href="#papers">Papers</a><a href="#next">Next</a><a href="#how">How I work</a><a href="#impact">Impact</a><a href="#experience">Experience</a><a href="#background">Education</a>
   <a href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV</a></div>
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
     <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -141,7 +223,8 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <img src="https://avatars.githubusercontent.com/u/44037432?v=4" alt="Photo of Ziyad Mansy" width="140" height="140">
     <div>
       <h1>Ziyad Mohammad Mansy Ibrahim</h1>
-      <p class="tag">Independent researcher in software testing and security · Senior mobile software engineer</p>
+      <p class="tag">I build automated tests that catch the bugs people miss, especially the silent ones that never crash.</p>
+      <p class="sub">Independent researcher in software testing and security · Senior mobile software engineer</p>
       <span class="badge">Applying to Ph.D. programs in Computer Science for Fall 2027</span>
       <div class="links">
         <a class="primary" href="https://drive.google.com/file/d/1LDapAqiTy_2jxhUZtrK9EUURwoWptVtx/view" target="_blank" rel="noopener">CV (PDF)</a>
@@ -156,60 +239,126 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 </header>
 
 <section id="about">
-  <h2>About</h2>
-  <p>I want automated testing to find bugs and security flaws before software ships, especially <span class="hl">silent failures</span> that give wrong results without crashing, and to report real problems instead of false alarms. My current work asks what knowledge AI testing agents need to find these failures, and how to tell a result is wrong when nothing crashes.</p>
-  <p>In 2026, while working full-time as a senior engineer, I turned a research challenge into three sole-authored studies on LLM-guided fuzzing (using LLMs to steer automatic test generation), all now under review. The work led two Google libraries to document behavior that silently changed data, including through a documentation fix of mine merged into <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">json_serializable</a>.</p>
-  <p>Before research, I spent five years shipping Android, iOS and Flutter apps in regulated fields. At a payments platform licensed by the Saudi Central Bank, I led the team that closed every penetration-test finding, with zero production security incidents. Today I build HIPAA-compliant transportation apps that handle thousands of trips a day in the US. I graduated <span class="hl">first of ~200</span> in Computer Engineering.</p>
+  <h2>In one minute</h2>
+  <p class="lede">The short version, for anyone in a hurry.</p>
+  <div class="cards">
+    <div class="card"><span class="k">The problem</span><p>Software often fails quietly. A price is rounded, a login token ends up in a log file, a record disappears. Nothing crashes, so no test notices, and a human expert has to find it later. Sometimes an attacker finds it first.</p></div>
+    <div class="card"><span class="k">What I did about it</span><p>In 2026, while working full time, I wrote three research papers on my own about using AI to guide automated testing. All three are under review at international software engineering conferences.</p></div>
+    <div class="card"><span class="k">Proof it matters</span><p>My tests found silent data loss in two Google libraries with over 18 million downloads a month. Both now document the problem, and one maintainer called my fix a "great fix to a VERY nuanced problem."</p></div>
+    <div class="card"><span class="k">Who I am</span><p>Five years building and securing real apps, from a fintech platform licensed by the Saudi Central Bank to US healthcare transportation. I graduated first of about 200 in Computer Engineering.</p></div>
+  </div>
   <div class="stats">
     <div class="stat"><b>3</b><span>sole-authored papers under review at ICST, AST and FORGE 2027</span></div>
-    <div class="stat"><b>18M+</b><span>monthly downloads of two Google libraries where I found silent data loss, now documented</span></div>
-    <div class="stat"><b>1st</b><span>of ~200 in my graduating class, with a 3.97/4.00 GPA in my first year</span></div>
-    <div class="stat"><b>100%</b><span>of penetration-test findings closed every round at a central-bank-licensed fintech, with no security incidents</span></div>
+    <div class="stat"><b>18M+</b><span>monthly downloads of two Google libraries where I found silent data loss</span></div>
+    <div class="stat"><b>1st</b><span>of about 200 in my graduating class</span></div>
+    <div class="stat"><b>100%</b><span>of security audit findings closed every round at a central-bank-licensed fintech</span></div>
   </div>
 </section>
 
-<section id="education">
-  <h2>Education</h2>
-  <div class="item"><h3>B.Sc. in Engineering, Electrical Engineering (Computer Engineering and Information Technology Branch)</h3><span class="when">May 2022</span>
-    <span class="where">Modern Academy for Engineering and Technology</span>
-    <ul><li><span class="hl">Ranked 1st of ~200</span> in cohort · General grade: Excellent · CGPA 3.535/4.00 (90.03%) · First-year GPA 3.97/4.00</li>
-        <li>WES U.S. equivalency: Bachelor's degree, GPA 3.71/4.00 (course-by-course evaluation, 180 semester credits)</li>
-        <li>Graduation project: <em>Modern Home Furniture in Virtual Reality</em> (Grade A+, team leader; advisor: Prof. Abdelmoneim Fouda). An augmented-reality app (Flutter, Unity3D, Google ARCore) that places furniture in a real room at real scale; systematic testing of the mobile-to-engine communication layer across devices and performance conditions.</li>
-        <li>Selected coursework: Data Structures &amp; Algorithms · Program Design &amp; Computer Language · Distributed Computer Systems · Computer Modeling &amp; Simulation · Software Engineering · Languages &amp; Compilers · Operating Systems · Computer Architecture · Probability &amp; Statistics</li></ul></div>
+<section id="problem">
+  <h2>The problem, in one picture</h2>
+  <p class="lede">Most testing looks for crashes. The failures I care about never crash.</p>
+  <p>Apps receive data as text, in a common format called JSON. A software library turns that text into values the app can use. Here is a real case I found in one of Google's libraries, when an app expects a whole number:</p>
+  <div class="flow" role="group" aria-label="Example of a silent failure">
+    <div class="box"><span class="cap">The data says</span><code>"price": 1.9</code><p>Text arriving from a server</p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="box"><span class="cap">The library reads it</span><code>json_serializable</code><p>Used by thousands of apps</p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="box"><span class="cap">The app gets</span><code>price = 1</code><p>The value quietly changed</p></div>
+  </div>
+  <div class="checks">
+    <div class="check ok"><span class="i" aria-hidden="true">✓</span><span>No crash</span></div>
+    <div class="check ok"><span class="i" aria-hidden="true">✓</span><span>No error message</span></div>
+    <div class="check no"><span class="i" aria-hidden="true">✗</span><span>Wrong value, and every test still passes</span></div>
+  </div>
+  <p class="note"><span class="hl">Why this is hard.</span> To catch it, a test has to know what the right answer should have been. Researchers call this the <span class="hl">test oracle problem</span>. A crash is easy to spot. A wrong number that looks normal is not. My research is about building automated tests that can tell, and that only report problems that are real, so developers are not buried in false alarms.</p>
 </section>
 
-<section id="news">
-  <h2>News</h2>
-  <ul class="news">
-    <li><time>Oct 2026</time><span>Submitted <em>Where Does an LLM Fuzzer's Domain Knowledge Come From?</em> to ICST 2027.</span></li>
-    <li><time>Sep 2026</time><span>My documentation fix for silent integer conversion was <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">merged into Google's json_serializable</a>; the maintainer called it a "great fix to a VERY nuanced problem."</span></li>
-    <li><time>Sep 2026</time><span>The built_value maintainer documented the missing-list behavior I reported (<a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">dart-lang/build#5178</a>).</span></li>
-    <li><time>Sep 2026</time><span>Reported a JSON standards violation in JetBrains' kotlinx.serialization strict mode (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276" target="_blank" rel="noopener noreferrer">#3276</a>).</span></li>
-    <li><time>Sep 2026</time><span>Papers under review at AST 2027 and FORGE 2027, both co-located with ICSE 2027.</span></li>
-  </ul>
+<section id="why-now">
+  <h2>Why this matters now: PHP2Shell</h2>
+  <p class="lede">A real example from October 2026 of a flaw that testing missed for over a decade.</p>
+  <p>PHP is the programming language behind most websites. In October 2026, two critical flaws in it, nicknamed PHP2Shell, let attackers take over web servers without logging in. The bug sat in code that only runs in a rare situation, when the server runs out of memory while reading a request.</p>
+  <ol class="timeline">
+    <li><time>2012</time><p>PHP 5.4 is released. Every version from here through 8.5 carries the flaw.</p></li>
+    <li><time>2012 to 2026</time><p>Years of testing never trigger it, because the faulty code only runs on a rare error.</p></li>
+    <li><time>2026</time><p>Security researchers using AI models report the flaw.</p></li>
+    <li class="alert"><time>Oct 17, 2026</time><p>The first attack attempts are reported, before any fix exists.</p></li>
+    <li class="fix"><time>Oct 21, 2026</time><p>PHP releases emergency fixes for every supported version.</p></li>
+  </ol>
+  <h3>What it teaches, and how it connects to my work</h3>
+  <div class="lessons">
+    <div class="card"><span class="k">Rare paths hide bugs</span><p>Tests mostly run the common paths. In my third study, an AI testing agent missed the rare failures and then told me everything was fine.</p></div>
+    <div class="card"><span class="k">It is a race</span><p>AI helped find this flaw, and attackers were already trying to use it. The goal is to find such flaws before attackers do.</p></div>
+    <div class="card"><span class="k">"No bugs found" is not "no bugs"</span><p>A testing tool should say clearly what it could not check, instead of declaring the software safe.</p></div>
+  </div>
+  <p class="sources">Sources: <a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching" target="_blank" rel="noopener noreferrer">CISA</a> · <a href="https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619" target="_blank" rel="noopener noreferrer">Canadian Centre for Cyber Security</a> · <a href="https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote" target="_blank" rel="noopener noreferrer">Tenable</a> · <a href="https://www.securityweek.com/php2shell-mass-exploitation-looms-for-leaked-critical-php-flaws/" target="_blank" rel="noopener noreferrer">SecurityWeek</a>. CVE-2026-109618 and CVE-2026-109619.</p>
 </section>
 
+<section id="research">
+  <h2>My research, step by step</h2>
+  <p class="lede">Three studies, each answering a question the one before it left open. All three are sole-authored, and all code and data are public.</p>
+  <p>All three use <span class="hl">fuzzing</span>: a testing tool automatically creates huge numbers of unusual inputs and feeds them to a program to see what breaks. In my work, an AI model helps create those inputs.</p>
 
-<section id="directions">
-  <h2>What I Want to Work On</h2>
-  <p>I want to spend my Ph.D. answering one central question: <span class="hl">How can automated testing catch bugs and security vulnerabilities before attackers exploit them or users pay for them, including silent failures that never crash, while giving developers a short list of real defects they can act on?</span></p>
-  <p>Creating test inputs is the easy part. The hard part is knowing what the right output should have been, known as the oracle problem. A crash makes that obvious, but the failures I care about most never crash. My results point to three directions:</p>
-  <ul class="plain dirs">
-    <li><span class="hl">Testing agents that know what they have not checked.</span> My agents learned only from the cases they tested, so finding no problem could simply mean they had not reached the right case. I want agents that read the code to find what could go wrong, aim their experiments at those gaps and report what they still have not checked.</li>
-    <li><span class="hl">Finding failures when there is no expected answer.</span> Some serious bugs do not crash the program, such as a rounded payment amount or a security protection that works on Android but not on iOS. I want to find them with differential and metamorphic testing: checking how the same input behaves across libraries, platforms and app versions.</li>
-    <li><span class="hl">Knowing when a finding is actually a bug.</span> Many differences I found between libraries turned out to be intended behavior. I want tools that use the specification, other implementations and how the data is used to decide which differences are real bugs, especially when security or important data is at stake.</li>
-  </ul>
-  <p><span class="hl">What I want to learn.</span> Each of my studies showed a problem in one setting. In a Ph.D., I want to turn those findings into methods that hold across many programs and that developers trust. That means learning to combine fuzzing with program analysis, so testing agents can aim at the code they have not reached yet; to run experiments large enough to support general claims; and to build benchmarks that others can use to measure progress.</p>
-  <p><span class="hl">What I bring to a lab.</span> Five years of building and securing production apps, a working LLM fuzzing setup and experience leading and teaching engineers. I will use that experience to help newer students design reliable experiments, as my professors helped me, and to keep turning research findings into fixes that maintainers merge.</p>
+  <div class="step">
+    <span class="num">Study 1 · FORGE 2027 · under review</span>
+    <h3>Can AI write good test inputs for a program it cannot see inside?</h3>
+    <p><span class="lbl">The situation.</span> Most fuzzers decide which inputs are worth keeping by watching which parts of the program each one runs. That requires the program's source code, and outside testers rarely have it. Even the security auditors at the fintech where I worked asked us for ours.</p>
+    <p><span class="lbl">What I did.</span> I let an AI model write programs that generate test inputs, and told it only how many of its inputs the target program rejected. I tested it on cJSON, a widely used program that reads JSON.</p>
+    <div class="chart">
+      <p class="ct">Share of test inputs the program accepted (higher is better)</p>
+      <div class="bar-row" title="Starting input generator: 58%"><span class="bar-label">Starting input generator</span><span class="bar-track"><span class="bar" style="--v:58"></span><span class="bar-val" style="--v:58">58%</span></span></div>
+      <div class="bar-row" title="AI-written generators, with feedback: 97%"><span class="bar-label">AI-written generators, with feedback</span><span class="bar-track"><span class="bar hi" style="--v:97"></span><span class="bar-val" style="--v:97">97%</span></span></div>
+      <div class="bar-row" title="AI-written generators, no feedback (planned comparison): 93%"><span class="bar-label">AI-written generators, no feedback</span><span class="bar-track"><span class="bar hi" style="--v:93"></span><span class="bar-val" style="--v:93">93%</span></span></div>
+    </div>
+    <p>A comparison I planned in advance reached 93% with no feedback at all, so most of the gain came from the AI's own generators. On a second program, the method did worse, because that program breaks the JSON standard in places and rejected inputs the AI expected to pass.</p>
+    <p class="lesson"><span class="hl">Lesson.</span> Counting failures is not enough. The AI needs to know which inputs failed and why.</p>
+  </div>
+
+  <div class="step">
+    <span class="num">Study 2 · AST 2027 · under review</span>
+    <h3>How do you catch a bug that never crashes?</h3>
+    <p><span class="lbl">What I did.</span> I gave the same inputs to the four most common ways Dart apps read JSON and flagged every input where their results differed. If two libraries read the same text differently, at least one of them is quietly wrong.</p>
+    <div class="chart">
+      <p class="ct">Share of test inputs that exposed a difference (higher is better)</p>
+      <div class="bar-row" title="AI fuzzer at first: 2.9%"><span class="bar-label">AI fuzzer at first</span><span class="bar-track"><span class="bar" style="--v:2.9"></span><span class="bar-val" style="--v:2.9">2.9%</span></span></div>
+      <div class="bar-row" title="Simple generator I wrote: 22.2%"><span class="bar-label">Simple generator I wrote</span><span class="bar-track"><span class="bar" style="--v:22.2"></span><span class="bar-val" style="--v:22.2">22.2%</span></span></div>
+      <div class="bar-row" title="AI fuzzer with four short notes about the libraries: 28.8%"><span class="bar-label">AI fuzzer with four short notes</span><span class="bar-track"><span class="bar hi" style="--v:28.8"></span><span class="bar-val" style="--v:28.8">28.8%</span></span></div>
+    </div>
+    <p>At first the AI lost to a simple generator. When I gave it four short notes on how these libraries handle unusual values, it moved ahead. Along the way I found silent data loss in two Google libraries, json_serializable and built_value, and both now document it.</p>
+    <p class="lesson"><span class="hl">Lesson.</span> The AI did not need to search harder. It needed knowledge about the libraries.</p>
+  </div>
+
+  <div class="step">
+    <span class="num">Study 3 · ICST 2027 · under review</span>
+    <h3>Can an AI agent learn that knowledge on its own?</h3>
+    <p><span class="lbl">What I did.</span> Across eight JSON readers in Dart and Kotlin, I compared three sources of knowledge: notes I wrote, notes an AI took from reading the library code, and notes an AI learned by running its own experiments. I published the study plan before running it, so I could not adjust it to fit the results.</p>
+    <div class="charts2">
+      <div class="chart">
+        <p class="ct">Dart: share of inputs that exposed a difference</p>
+        <div class="bar-row" title="No notes: 1.5%"><span class="bar-label">No notes</span><span class="bar-track"><span class="bar" style="--v:1.5"></span><span class="bar-val" style="--v:1.5">1.5%</span></span></div>
+        <div class="bar-row" title="Notes from reading the code: 11.6%"><span class="bar-label">Notes from reading the code</span><span class="bar-track"><span class="bar" style="--v:11.6"></span><span class="bar-val" style="--v:11.6">11.6%</span></span></div>
+        <div class="bar-row" title="Notes I wrote: 30.9%"><span class="bar-label">Notes I wrote</span><span class="bar-track"><span class="bar hi" style="--v:30.9"></span><span class="bar-val" style="--v:30.9">30.9%</span></span></div>
+      </div>
+      <div class="chart">
+        <p class="ct">Kotlin: share of inputs that exposed a difference</p>
+        <div class="bar-row" title="No notes: 50%"><span class="bar-label">No notes</span><span class="bar-track"><span class="bar" style="--v:50"></span><span class="bar-val" style="--v:50">50%</span></span></div>
+        <div class="bar-row" title="Agent's own experiments: 67%"><span class="bar-label">Agent's own experiments</span><span class="bar-track"><span class="bar hi" style="--v:67"></span><span class="bar-val" style="--v:67">67%</span></span></div>
+      </div>
+    </div>
+    <p>In Kotlin, where differences were common, the experimenting agent helped. In Dart, where they were rare, it usually missed them and then reported that the libraries agreed.</p>
+    <p class="lesson"><span class="hl">Lesson.</span> An agent only learns from failures it manages to trigger. It misses the rare ones, and that gap is where I want to start my Ph.D.</p>
+  </div>
 </section>
 
-<section id="publications">
-  <h2>Publications</h2>
+<section id="papers">
+  <h2>Papers</h2>
+  <p class="lede">All sole-authored, under review, with preprints, code and data public.</p>
   <div class="pub">
     <span class="venue">ICST 2027 · under review</span>
     <h3>Where Does an LLM Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
-    <p class="find">In Dart, knowledge written by a person worked best (30.9% of inputs exposed disagreements, vs. 11.6% from reading code and 1.5% with none); in Kotlin, an agent's own experiments raised the rate from 50% to 67%.</p>
+    <p class="plain"><span class="hl">In plain words:</span> where should an AI testing tool get its knowledge about the software it tests, from a person, from the code, or from its own experiments?</p>
+    <p class="find">In Dart, knowledge written by a person worked best (30.9% of inputs exposed differences, vs. 11.6% from reading code and 1.5% with none). In Kotlin, an agent's own experiments raised the rate from 50% to 67%.</p>
     <div class="acts"><a href="https://doi.org/10.5281/zenodo.23002933" target="_blank" rel="noopener noreferrer">Preprint</a><a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing" target="_blank" rel="noopener noreferrer">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.23003263" target="_blank" rel="noopener noreferrer">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026knowledge,
   author = {Ibrahim, Ziyad Mohammad Mansy},
   title  = {Where Does an {LLM} Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers},
@@ -222,7 +371,8 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <span class="venue">AST 2027 (co-located with ICSE) · under review</span>
     <h3>Beyond Sanitizers: LLM-Guided Refinement for Differential JSON Deserialization Testing in Dart</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
-    <p class="find">Two Dart JSON libraries silently capped out-of-range integers in 649 of 11,449 accepted decodes each (5.7%); missing domain knowledge, not search, was what held the LLM fuzzer back.</p>
+    <p class="plain"><span class="hl">In plain words:</span> how can automated testing catch libraries that quietly change data instead of crashing?</p>
+    <p class="find">Two Dart JSON libraries silently capped out-of-range numbers in 649 of 11,449 accepted inputs each (5.7%). Missing knowledge, not weak search, was what held the AI fuzzer back.</p>
     <div class="acts"><a href="https://doi.org/10.5281/zenodo.22555794" target="_blank" rel="noopener noreferrer">Preprint</a><a href="https://github.com/ziyadmansy/agentic-fuzzing-dart-json" target="_blank" rel="noopener noreferrer">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22544011" target="_blank" rel="noopener noreferrer">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026beyond,
   author = {Ibrahim, Ziyad Mohammad Mansy},
   title  = {Beyond Sanitizers: {LLM}-Guided Refinement for Differential {JSON} Deserialization Testing in {Dart}},
@@ -235,7 +385,8 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <span class="venue">FORGE 2027 (co-located with ICSE) · under review</span>
     <h3>Coverage-Free Fuzzing: LLM-Guided Refinement of Grammar-Based Test Generators</h3>
     <p class="auth"><b>Ziyad Mohammad Mansy Ibrahim</b> (sole author)</p>
-    <p class="find">Without seeing the target's code, LLM-written generators raised valid cJSON inputs from 58% to 97%; a pre-registered replication traced every rejected input on a second parser to its cause.</p>
+    <p class="plain"><span class="hl">In plain words:</span> can an AI write good test inputs for a program without seeing inside it?</p>
+    <p class="find">AI-written generators raised the share of valid cJSON inputs from 58% to 97%. A comparison planned in advance showed most of the gain came from the generators themselves.</p>
     <div class="acts"><a href="https://doi.org/10.5281/zenodo.22556342" target="_blank" rel="noopener noreferrer">Preprint</a><a href="https://github.com/ziyadmansy/agentic-grammar-fuzzing" target="_blank" rel="noopener noreferrer">Code &amp; data</a><a href="https://doi.org/10.5281/zenodo.22231288" target="_blank" rel="noopener noreferrer">Software DOI</a><details><summary>Cite</summary><pre>@misc{ibrahim2026coverage,
   author = {Ibrahim, Ziyad Mohammad Mansy},
   title  = {Coverage-Free Fuzzing: {LLM}-Guided Refinement of Grammar-Based Test Generators},
@@ -246,85 +397,90 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   </div>
 </section>
 
-<section id="experience">
-  <h2>Research Experience</h2>
-  <div class="item"><h3>Independent Researcher, LLM-Guided Software Testing</h3><span class="when">2026 – Present</span>
-    <span class="where">Three sole-authored studies, all under review (see <a href="#publications">Publications</a>). It began with a fuzzing challenge Dr. Marcelo D'Amorim (NC State) set for about 70 prospective Ph.D. applicants; my solution passed, and I was one of about 20 invited to a Q&amp;A session. Each study answers a question the previous one raised.</span>
-    <ul>
-      <li><span class="hl">Can an LLM write a good fuzzer without seeing the target's code? (<a href="https://doi.org/10.5281/zenodo.22556342" target="_blank" rel="noopener noreferrer">FORGE</a>)</span> I built a fuzzer in which an LLM writes test generators from a grammar, seeing only how the target responds from outside. On cJSON, a C parser with 13K+ GitHub stars, valid inputs rose from 58% to 97%. On a second parser, I traced every rejected input and found where that parser departs from the JSON standard. <em>Lesson: feedback that only counts failures tells an LLM too little.</em></li>
-      <li><span class="hl">How do you find bugs that never crash? (<a href="https://doi.org/10.5281/zenodo.22555794" target="_blank" rel="noopener noreferrer">AST</a>)</span> JSON libraries in Flutter apps rarely crash; they silently change values. I compared four common ways to decode JSON in Dart and checked each decoded number against the original text. The LLM fuzzer first trailed a simple generator (2.9% vs. 22.2%); four facts about the libraries raised it to 28.8%. <em>Lesson: what the fuzzer lacked was knowledge, not more searching.</em> This work found silent data loss in Google's json_serializable and built_value, both now documented.</li>
-      <li><span class="hl">Can an AI agent learn that knowledge itself? (<a href="https://doi.org/10.5281/zenodo.23002933" target="_blank" rel="noopener noreferrer">ICST</a>)</span> On eight JSON decoders in Dart and Kotlin, I gave the same fuzzer knowledge from three sources: written by me, read from the libraries' code, or learned by an agent through its own experiments. Knowledge written by a person worked best (30.9% of inputs exposed disagreements, vs. 1.5% with none). The experimenting agent helped where problems were common (50% to 67%) but on Dart missed rare ones and wrongly concluded the libraries agreed. <em>Lesson: an agent only knows what its experiments reach.</em> I also reported a JSON standards violation in JetBrains' kotlinx.serialization.</li>
-      <li><span class="hl">Open science:</span> released all code, prompts and results with software DOIs, so every number can be rechecked; the key experiments were pre-registered before any data was collected.</li>
-    </ul></div>
-  <div class="item"><h3>Undergraduate Researcher, Breast Tumor Classification</h3><span class="when">2021 – 2022</span>
-    <span class="where">Modern Academy for Engineering and Technology · Advisor: <a href="https://scholar.google.com/citations?user=xq7chGkAAAAJ" target="_blank" rel="noopener noreferrer">Dr. Manar Donia</a></span>
-    <ul><li>Trained a TensorFlow transfer-learning classifier on 5,000+ benign and malignant breast-tumor scans, with OpenCV preprocessing.</li><li>Deployed the model in a Flutter app with TensorFlow Lite that classifies a scan fully offline and shows related medical information.</li></ul></div>
+<section id="next">
+  <h2>What I want to work on next</h2>
+  <p class="lede">The question I want to spend my Ph.D. on: <span class="hl">how can automated testing find the bugs and security flaws that today only human experts uncover, including silent failures, without burying developers in false alarms?</span></p>
+  <p>My studies raised three open questions. All three come down to one thing: backing every result with evidence, whether a testing tool reports a bug or says there is none.</p>
+  <div class="dir"><h3>1. How can a tool tell a real bug from intended behavior?</h3><p>Many differences I checked by hand turned out to be intended. A tool that reports all of them wastes developers' time. I want tools that learn what a library is supposed to do from its documentation and code, and back each report with a small example and the rule it breaks.</p></div>
+  <div class="dir"><h3>2. What quietly changes when an app updates a library?</h3><p>Apps update the libraries they depend on all the time, often automatically, and assume that passing tests mean nothing broke. The silent data loss I found passed every existing test. I want to run each new version side by side with the old one and flag every input where they behave differently.</p></div>
+  <div class="dir"><h3>3. Can a testing tool do part of a security expert's job and say what it did not check?</h3><p>A protection that works on Android can fail on iOS or on an older phone, even when both apps share the same code. I want tools that check each protection everywhere, and that report what they could not verify next to what they found.</p></div>
+</section>
+
+<section id="how">
+  <h2>How I work</h2>
+  <p class="lede">What I care about when I do research.</p>
+  <div class="how">
+    <div class="card"><span class="k">Plan in public</span><p>For my third study, I published the full plan before running it, so I could not change it later to fit the results.</p></div>
+    <div class="card"><span class="k">Report what failed</span><p>When a method did worse on a second program, I reported it and explained why, instead of showing only the good result.</p></div>
+    <div class="card"><span class="k">Release everything</span><p>All code, prompts and results are public with permanent DOIs, so anyone can recheck every number.</p></div>
+    <div class="card"><span class="k">Fix it at the source</span><p>When my tests find a real problem, I report it to the maintainers with a small example, so the fix reaches everyone who uses the library.</p></div>
+  </div>
 </section>
 
 <section id="impact">
-  <h2>Open Source and Upstream Impact</h2>
+  <h2>Real-world impact</h2>
+  <p class="lede">Problems I found or fixed in software that many developers depend on.</p>
   <ul class="plain">
-    <li><span class="hl">Google json_serializable:</span> found that it silently caps out-of-range integers and turns 1.9 into 1; the maintainer confirmed my analysis and merged my documentation fix (<a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">#1591</a>, <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">PR #1592</a>).</li>
-    <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty; the maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">dart-lang/build#5178</a>).</li>
-    <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a standalone reproducer, that strict mode accepts control characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276" target="_blank" rel="noopener noreferrer">#3276</a>).</li>
+    <li><span class="hl">Google json_serializable:</span> found that it silently caps out-of-range numbers and turns 1.9 into 1. The maintainer confirmed it and merged my documentation fix (<a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">#1591</a>, <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">PR #1592</a>).</li>
+    <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty. The maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">dart-lang/build#5178</a>).</li>
+    <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a small reproducing example, that its strict mode accepts characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276" target="_blank" rel="noopener noreferrer">#3276</a>).</li>
     <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with 320K+ monthly downloads, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431" target="_blank" rel="noopener noreferrer">PR #431</a>).</li>
-    <li><span class="hl">LLVM:</span> isolated an AddressSanitizer hang on macOS and showed that LLVM 23.1.0 is unaffected (<a href="https://github.com/llvm/llvm-project/issues/200447" target="_blank" rel="noopener noreferrer">#200447</a>).</li>
-    <li><span class="hl">Community:</span> 3,000+ GitHub contributions across 50+ repositories; <a href="https://stackoverflow.com/users/14139092/ziyad-mansy" target="_blank" rel="noopener noreferrer">Stack Overflow</a> top 8% (2021); developer articles on <a href="https://medium.com/@ziyadmohammad37" target="_blank" rel="noopener noreferrer">Medium</a>.</li>
+    <li><span class="hl">LLVM:</span> isolated a hang in a widely used bug-detection tool (AddressSanitizer) on macOS and showed that LLVM 23.1.0 is unaffected (<a href="https://github.com/llvm/llvm-project/issues/200447" target="_blank" rel="noopener noreferrer">#200447</a>).</li>
+    <li><span class="hl">Community:</span> 3,000+ GitHub contributions across 50+ repositories, <a href="https://stackoverflow.com/users/14139092/ziyad-mansy" target="_blank" rel="noopener noreferrer">Stack Overflow</a> top 8% (2021), and developer articles on <a href="https://medium.com/@ziyadmohammad37" target="_blank" rel="noopener noreferrer">Medium</a>.</li>
   </ul>
 </section>
 
-<section id="honors">
-  <h2>Honors and Selections</h2>
-  <ul class="plain">
-    <li><span class="hl">Ranked 1st of ~200</span> in the 2022 graduating cohort, Modern Academy for Engineering and Technology.</li>
+<section id="news">
+  <h2>News</h2>
+  <ul class="news">
+    <li><time>Oct 2026</time><span>Applying to Ph.D. programs in Computer Science for Fall 2027.</span></li>
+    <li><time>Oct 2026</time><span>Submitted <em>Where Does an LLM Fuzzer's Domain Knowledge Come From?</em> to ICST 2027.</span></li>
+    <li><time>Sep 2026</time><span>My fix for silent number conversion was <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">merged into Google's json_serializable</a>.</span></li>
+    <li><time>Sep 2026</time><span>The built_value maintainer documented the missing-list behavior I reported (<a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">dart-lang/build#5178</a>).</span></li>
+    <li><time>Sep 2026</time><span>Papers under review at AST 2027 and FORGE 2027, both co-located with ICSE 2027.</span></li>
   </ul>
 </section>
 
-<section id="teaching">
-  <h2>Leadership and Teaching</h2>
-  <ul class="plain">
-    <li><span class="hl">Engineering team lead, Madfu (2023 – 2024):</span> led and mentored 3 senior Flutter engineers through delivery of the consumer and merchant POS apps (100K+ downloads); built the team's quality process from nothing and coordinated the fixes for every penetration-test round, with zero production security incidents.</li>
-    <li><span class="hl">Mentoring, Assas IT Solutions (2022):</span> mentored junior Flutter engineers through Tahara's path to production.</li>
-    <li><span class="hl">AI-assisted development sessions, Focal Agent (2025 – 2026):</span> ran recurring online sessions teaching engineering colleagues to use AI coding tools in their daily work.</li>
-    <li><span class="hl">Technical ownership, Naveera Tech (2026 – Present):</span> took ownership of a fleet-operations platform that had gone 9 months without a release, and shipped it to both app stores within one month of joining; designed its offline-first architecture and own its testing end to end.</li>
-    <li><span class="hl">Founding mobile engineer, Talmaro (2021):</span> joined as the company's first mobile engineer, set up its mobile development from zero, and shipped its enterprise HR app to three app stores, reaching 10K+ downloads.</li>
-    <li><span class="hl">Graduation project team leader:</span> led the team to an A+: planned tasks and deadlines, taught teammates and was the team's point of contact with our advisor, Prof. Abdelmoneim Fouda.</li>
-    <li><span class="hl">Peer study guides:</span> wrote a study guide for every course before each final exam, condensing each subject into the rules and topics needed to succeed; my cohort relied on them to prepare.</li>
-    <li><span class="hl">Presentations:</span> led my team in preparing and delivering our seminar presentations (Seminar I: A+); presented our graduation project at its final defense before a committee that included external examiners.</li>
-  </ul>
+<section id="experience">
+  <h2>Experience</h2>
+  <p class="lede">Five years shipping and securing production apps in fintech, healthcare, transportation, HR and real estate, with 200K+ combined downloads. Open any role for details.</p>
+  <div class="item"><div class="top"><h3>Senior Mobile Software Engineer, Naveera Tech (US, remote)</h3><span class="when">May 2026 – Present</span></div>
+    <p class="one">Took over a fleet platform that had gone 9 months without a release and shipped it within a month. It now handles thousands of trips a day for hundreds of US organizations, including medical transportation.</p>
+    <details><summary>Details</summary><ul><li>Built the HIPAA-compliant Driver and Client apps used by non-emergency medical transportation, paratransit and commercial transportation providers.</li><li>Designed an offline-first architecture that keeps dispatch, navigation and trip state correct when the connection drops, and reconciles automatically when it returns.</li><li>Built live turn-by-turn navigation and the dispatch, routing and billing workflows.</li><li>Own testing end to end: unit and integration tests, manual test passes, and AI agents that run manual-style test scenarios across the apps' core flows.</li></ul></details></div>
+  <div class="item"><div class="top"><h3>Senior Mobile Software Engineer, Focal Agent (UK, remote)</h3><span class="when">Aug 2024 – Apr 2026</span></div>
+    <p class="one">Delivered AI features for PropertyBox, a real-estate platform used by thousands of estate agents across the UK, Europe and the UAE.</p>
+    <details><summary>Details</summary><ul><li>AI photo enhancement, object removal, floor-plan redrawing, property-description generation and one-step social publishing.</li><li>Custom features for enterprise clients Reapit and Connells, and UK regulatory workflows for EPC compliance.</li><li>One Flutter codebase for Web, Android and iOS, shipped through automated CI/CD on Azure Pipelines.</li><li>Unit and integration tests, plus AI agents that test the app the way a human tester would. Ran recurring sessions teaching colleagues to use AI coding tools.</li></ul></details></div>
+  <div class="item"><div class="top"><h3>Lead Mobile Software Engineer, Madfu (Saudi Arabia, remote)</h3><span class="when">Jan 2023 – Jul 2024</span></div>
+    <p class="one">Led a team of three senior engineers building the apps of a buy-now-pay-later platform licensed by the Saudi Central Bank (100K+ downloads), with zero security incidents in production.</p>
+    <details><summary>Details</summary><ul><li>Replaced separate native Android and iOS apps with one Flutter app built from scratch, for consumers and merchants.</li><li>Closed all 5 to 10 findings from every recurring third-party security audit, including secure key handling, encryption at rest, SSL pinning and screen-capture protection.</li><li>Built the team's quality process from nothing: mandatory code review, a shared component library and test-driven development. Crash-free users rose to 98% against a 95% target, with a two-week release cadence.</li></ul></details></div>
+  <div class="item"><div class="top"><h3>Senior Mobile Software Engineer, Assas IT Solutions (Saudi Arabia, remote)</h3><span class="when">Jan 2022 – Dec 2022</span></div>
+    <p class="one">Built core features of Tahara, a women's-health app that reached #2 in Health &amp; Fitness on the Saudi App Store, with 100K+ downloads. Mentored junior engineers.</p></div>
+  <div class="item"><div class="top"><h3>Founding Mobile Software Engineer, Talmaro (UAE, remote)</h3><span class="when">Mar 2021 – Dec 2021</span></div>
+    <p class="one">The company's first mobile engineer. Built and shipped its HR app from scratch, reaching 10K+ downloads across three app stores.</p></div>
+  <div class="item"><div class="top"><h3>Independent App Developer</h3><span class="when">Self-published</span></div>
+    <p class="one">Published <a href="https://play.google.com/store/apps/dev?id=6637516697625901674" target="_blank" rel="noopener noreferrer">5 apps</a> on Google Play as sole developer, including a Flutter app in 9 languages (1K+ downloads, 4.9/5).</p></div>
 </section>
 
-<section id="industry">
-  <h2>Industry Experience</h2>
-  <p>5+ years shipping production iOS, Android and web apps in fintech, healthcare, transportation, HR and real estate for clients in the US, UK, Saudi Arabia and the UAE, with 200K+ combined downloads.</p>
-  <div class="item"><h3>Senior Mobile Software Engineer, Naveera Tech</h3><span class="when">May 2026 – Present</span>
-    <span class="where">Remote (US)</span>
-    <ul><li>Took over a fleet-operations platform that had gone 9 months without a release and shipped it to the App Store and Google Play within one month of joining; it now handles <span class="hl">thousands of trips per day</span> for hundreds of US client organizations.</li><li>Built the HIPAA-compliant Driver and Client apps used by non-emergency medical transportation (NEMT), paratransit and commercial transportation providers.</li><li>Kept dispatch, navigation and trip state correct through connectivity loss by designing an offline-first architecture that queues operations and reconciles them automatically on reconnection.</li><li>Built in-app navigation with live routing and turn-by-turn guidance, and the dispatch, routing and billing workflows that connect drivers, clients and operators.</li><li>Owned testing end to end: wrote unit and integration tests, ran manual test passes, and used AI agents to execute manual-style test scenarios across the apps' core flows.</li></ul></div>
-  <div class="item"><h3>Senior Mobile Software Engineer, Focal Agent</h3><span class="when">Aug 2024 – Apr 2026</span>
-    <span class="where">Remote (UK)</span>
-    <ul><li>Delivered AI features for PropertyBox, a real-estate platform used by agencies across the UK, Europe and the UAE: automated property-description generation, AI photo enhancement and one-step social publishing.</li><li>Built client-specific customizations for enterprise clients <span class="hl">Reapit and Connells</span>, and UK regulatory workflows for EPC compliance and campaign management.</li><li>Shipped and maintained one Flutter codebase across Web, Android and iOS through automated Azure Pipelines CI/CD.</li><li>Wrote unit and integration tests, and used AI agents to automate manual testing, exercising the app the way a real human tester would.</li><li>Led the team's knowledge-sharing sessions on AI-assisted software development.</li></ul></div>
-  <div class="item"><h3>Lead Mobile Software Engineer, Madfu (BNPL fintech)</h3><span class="when">Jan 2023 – Jul 2024</span>
-    <span class="where">Remote (Saudi Arabia)</span>
-    <ul><li>Led 3 senior Flutter engineers and owned the architecture and delivery of the consumer and merchant POS apps (<span class="hl">100K+ downloads</span>) of a BNPL platform licensed by the Saudi Central Bank (SAMA).</li><li>Built installment plans, payment flows, and merchant and point-of-sale integrations for the platform's consumers and merchants.</li><li>Maintained <span class="hl">zero production security incidents</span> by closing all 5–10 findings from each recurring third-party penetration test, including secure key handling, encryption at rest, SSH hardening and screen-capture protection.</li><li>Built the team's quality process from nothing: mandatory code review, a shared component library and test-driven development, which reduced bugs and shortened release cycles.</li></ul></div>
-  <div class="item"><h3>Senior Mobile Software Engineer, Assas IT Solutions</h3><span class="when">Jan 2022 – Dec 2022</span>
-    <span class="where">Remote (Saudi Arabia)</span>
-    <ul><li>Built core features of Tahara, a women's-health app that reached <span class="hl">#2 in Health &amp; Fitness</span> on the Saudi App Store, with 100K+ downloads and a 4.6/5 rating from 1.2K+ reviews.</li><li>Implemented the menstrual-cycle calculations and their visualization, and a week-by-week pregnancy calendar.</li></ul></div>
-  <div class="item"><h3>Founding Mobile Software Engineer, Talmaro</h3><span class="when">Mar 2021 – Dec 2021</span>
-    <span class="where">Remote (UAE)</span>
-    <ul><li>Built and shipped Talmaro-ESS from scratch as the company's first mobile engineer, an enterprise HR app that reached <span class="hl">10K+ downloads</span> across the App Store, Google Play and Huawei AppGallery.</li><li>Delivered the attendance, payroll, leave and team-approval workflows used by employees and managers.</li></ul></div>
-  <div class="item"><h3>Independent App Developer, Google Play</h3><span class="when"></span>
-    <span class="where">Self-published</span>
-    <ul><li>Designed, developed and published <a href="https://play.google.com/store/apps/dev?id=6637516697625901674" target="_blank" rel="noopener noreferrer">5 apps</a> as sole developer, including a Flutter app in 9 languages (1K+ downloads, 4.9/5) and four native Android apps in Java and Kotlin.</li></ul></div>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <ul class="plain">
-    <li><span class="hl">Research and testing:</span> fuzzing, grammar-based and property-based test generation, differential testing, automated test generation, static analysis, TDD, pre-registered experiments, exact nonparametric statistics (Mann–Whitney U, Cliff's δ, Holm correction)</li>
-    <li><span class="hl">Tools:</span> Hypothesis, ANTLR, AddressSanitizer, UndefinedBehaviorSanitizer, OpenAI API, Git, GitHub Actions, Azure DevOps, Codemagic</li>
-    <li><span class="hl">Programming languages:</span> Dart, Python, Kotlin, C, Java, Swift, JavaScript</li>
-    <li><span class="hl">Mobile and web:</span> Flutter, Android, iOS, React, Flutter Web; Clean Architecture, SOLID, offline-first systems; secure key storage, encryption at rest</li>
-  </ul>
+<section id="background">
+  <h2>Education and honors</h2>
+  <div class="item"><div class="top"><h3>B.Sc. in Electrical Engineering (Computer Engineering and IT), Modern Academy for Engineering and Technology</h3><span class="when">May 2022</span></div>
+    <ul>
+      <li><span class="hl">Ranked 1st of about 200</span> in my class. General grade: Excellent. CGPA 3.535/4.00 (90.03%), first-year GPA 3.97/4.00. WES U.S. equivalent GPA: 3.71/4.00.</li>
+      <li>Merit scholarship in all 10 semesters (2017 to 2022).</li>
+      <li>Graduation project (A+, team leader, advisor Prof. Abdelmoneim Fouda): <em>Modern Home Furniture in Augmented Reality</em>, an app that places furniture in a real room at real scale.</li>
+      <li>Undergraduate research with <a href="https://scholar.google.com/citations?user=xq7chGkAAAAJ" target="_blank" rel="noopener noreferrer">Dr. Manar Donia</a>: trained an AI model on 5,000+ medical scans to classify breast tumors, then ran it fully offline inside a mobile app.</li>
+    </ul></div>
+  <div class="item"><h3>Selections</h3>
+    <ul><li>One of about 20 of about 70 prospective Ph.D. applicants whose solutions to Dr. Marcelo D'Amorim's (NC State University) fuzzing research challenge passed, and was invited to a Q&amp;A session with him (2026). This challenge started my research.</li></ul></div>
+  <div class="item"><h3>Leadership and teaching</h3>
+    <ul><li>Led and mentored engineering teams at Madfu and Assas, and ran AI-coding training sessions at Focal Agent.</li><li>Wrote a study guide for every course before each final exam. Much of my class studied from them.</li><li>Led my graduation project team and presented it at a final defense that included external examiners.</li></ul></div>
+  <details class="item"><summary>Skills</summary>
+    <ul>
+      <li><span class="hl">Research and testing:</span> fuzzing, grammar-based and property-based test generation, differential testing, static analysis, test-driven development, pre-registered experiments, nonparametric statistics (Mann–Whitney U, Cliff's δ, Holm correction).</li>
+      <li><span class="hl">Tools:</span> Hypothesis, ANTLR, AddressSanitizer, UndefinedBehaviorSanitizer, OpenAI API, Git, GitHub Actions, Azure DevOps, Codemagic.</li>
+      <li><span class="hl">Languages:</span> Dart, Python, Kotlin, C, Java, Swift, JavaScript.</li>
+      <li><span class="hl">Mobile and web:</span> Flutter, Android, iOS, React, Flutter Web, offline-first systems, secure key storage, encryption at rest.</li>
+    </ul></details>
 </section>
 </main>
 

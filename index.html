@@ -10,17 +10,151 @@
 <meta property="og:description" content="Automated testing for the bugs people miss, especially silent failures that never crash. Three sole-authored papers under review at ICST, AST and FORGE 2027.">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/44037432?v=4">
 <meta property="og:type" content="profile">
+<meta property="og:url" content="https://ziyadmansy.github.io/">
+<meta property="og:site_name" content="Ziyad Mansy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ziyad Mansy · Software Testing & Security Research">
+<meta name="twitter:description" content="Automated testing for the bugs people miss, especially silent failures that never crash. Three sole-authored papers under review. Applying to Ph.D. programs for Fall 2027.">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/44037432?v=4">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ziyadmansy.github.io/">
+<link rel="sitemap" type="application/xml" href="https://ziyadmansy.github.io/sitemap.xml">
+<link rel="alternate" type="text/markdown" title="Plain-text summary for AI tools" href="https://ziyadmansy.github.io/llms.txt">
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <link rel="icon" href="https://avatars.githubusercontent.com/u/44037432?v=4&s=64">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Ziyad Mohammad Mansy Ibrahim","alternateName":"Ziyad Mansy",
- "url":"https://ziyadmansy.github.io","image":"https://avatars.githubusercontent.com/u/44037432?v=4",
- "jobTitle":"Independent Researcher; Senior Mobile Software Engineer",
- "alumniOf":"Modern Academy for Engineering and Technology",
- "sameAs":["https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ","https://orcid.org/0009-0008-3499-3828","https://github.com/ziyadmansy","https://linkedin.com/in/ziyadmansy"]}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ziyadmansy.github.io/#person",
+   "name": "Ziyad Mohammad Mansy Ibrahim",
+   "alternateName": "Ziyad Mansy",
+   "url": "https://ziyadmansy.github.io/",
+   "image": "https://avatars.githubusercontent.com/u/44037432?v=4",
+   "email": "mailto:ziyadmohammad37@gmail.com",
+   "description": "Independent researcher in software testing and security and senior mobile software engineer. Builds automated testing that catches silent failures, bugs that never crash. Three sole-authored papers under review at ICST, AST and FORGE 2027. Applying to Ph.D. programs in Computer Science for Fall 2027.",
+   "jobTitle": "Independent Researcher; Senior Mobile Software Engineer",
+   "worksFor": {
+    "@type": "Organization",
+    "name": "Naveera Tech"
+   },
+   "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Modern Academy for Engineering and Technology",
+    "address": "Cairo, Egypt"
+   },
+   "nationality": "Egypt",
+   "knowsAbout": [
+    "Software testing",
+    "Software security",
+    "Fuzzing",
+    "LLM-guided fuzzing",
+    "Differential testing",
+    "Test oracle problem",
+    "Silent failures",
+    "Program analysis",
+    "Mobile app security",
+    "Flutter",
+    "Dart",
+    "Kotlin"
+   ],
+   "award": [
+    "Ranked 1st of about 200 in the 2022 graduating class, Modern Academy for Engineering and Technology",
+    "Merit scholarship in all 10 semesters (2017 to 2022)"
+   ],
+   "sameAs": [
+    "https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ",
+    "https://orcid.org/0009-0008-3499-3828",
+    "https://github.com/ziyadmansy",
+    "https://linkedin.com/in/ziyadmansy"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ziyadmansy.github.io/#website",
+   "url": "https://ziyadmansy.github.io/",
+   "name": "Ziyad Mansy",
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://ziyadmansy.github.io/#person"
+   }
+  },
+  {
+   "@type": "ScholarlyArticle",
+   "@id": "https://doi.org/10.5281/zenodo.23002933",
+   "name": "Where Does an LLM Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers",
+   "headline": "Where Does an LLM Fuzzer's Domain Knowledge Come From? Human, Code-Read, and Self-Acquired Knowledge for Differential Testing of Typed Deserializers",
+   "author": {
+    "@id": "https://ziyadmansy.github.io/#person"
+   },
+   "url": "https://doi.org/10.5281/zenodo.23002933",
+   "identifier": "doi:10.5281/zenodo.23002933",
+   "datePublished": "2026",
+   "creativeWorkStatus": "Under review at ICST 2027",
+   "about": [
+    "LLM-guided fuzzing",
+    "Differential testing",
+    "JSON deserialization"
+   ],
+   "abstract": "Compares three sources of knowledge for an LLM fuzzer, written by a person, read from library code, or learned by an agent's own experiments, across eight JSON decoders in Dart and Kotlin. Human-written knowledge worked best in Dart (30.9% of inputs exposed differences vs. 1.5% with none). In Kotlin, the agent's own experiments raised the rate from 50% to 67%.",
+   "isAccessibleForFree": true,
+   "sameAs": [
+    "https://github.com/ziyadmansy/knowledge-sources-fuzzing"
+   ]
+  },
+  {
+   "@type": "ScholarlyArticle",
+   "@id": "https://doi.org/10.5281/zenodo.22555794",
+   "name": "Beyond Sanitizers: LLM-Guided Refinement for Differential JSON Deserialization Testing in Dart",
+   "headline": "Beyond Sanitizers: LLM-Guided Refinement for Differential JSON Deserialization Testing in Dart",
+   "author": {
+    "@id": "https://ziyadmansy.github.io/#person"
+   },
+   "url": "https://doi.org/10.5281/zenodo.22555794",
+   "identifier": "doi:10.5281/zenodo.22555794",
+   "datePublished": "2026",
+   "creativeWorkStatus": "Under review at AST 2027",
+   "about": [
+    "Silent failures",
+    "Differential testing",
+    "Dart"
+   ],
+   "abstract": "Differential testing of four common ways Dart apps decode JSON. Two libraries silently capped out-of-range numbers in 5.7% of accepted inputs. An LLM fuzzer first trailed a simple generator (2.9% vs. 22.2%) and reached 28.8% after four short notes about the libraries. Found silent data loss in Google's json_serializable and built_value, both now documented.",
+   "isAccessibleForFree": true,
+   "sameAs": [
+    "https://github.com/ziyadmansy/agentic-fuzzing-dart-json"
+   ]
+  },
+  {
+   "@type": "ScholarlyArticle",
+   "@id": "https://doi.org/10.5281/zenodo.22556342",
+   "name": "Coverage-Free Fuzzing: LLM-Guided Refinement of Grammar-Based Test Generators",
+   "headline": "Coverage-Free Fuzzing: LLM-Guided Refinement of Grammar-Based Test Generators",
+   "author": {
+    "@id": "https://ziyadmansy.github.io/#person"
+   },
+   "url": "https://doi.org/10.5281/zenodo.22556342",
+   "identifier": "doi:10.5281/zenodo.22556342",
+   "datePublished": "2026",
+   "creativeWorkStatus": "Under review at FORGE 2027",
+   "about": [
+    "Fuzzing",
+    "Grammar-based test generation",
+    "LLM"
+   ],
+   "abstract": "An LLM writes grammar-based test generators for C parsers without code-coverage feedback. On cJSON, valid inputs rose from 58% to 97%, and a pre-registered control reached 93% without feedback, showing most of the gain came from the generators themselves.",
+   "isAccessibleForFree": true,
+   "sameAs": [
+    "https://github.com/ziyadmansy/agentic-grammar-fuzzing"
+   ]
+  }
+ ]
+}
 </script>
 <style>
 :root{

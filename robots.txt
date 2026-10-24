@@ -1,0 +1,5 @@
+# Everyone is welcome to read and index this site, including AI assistants.
+User-agent: *
+Allow: /
+
+Sitemap: https://ziyadmansy.github.io/sitemap.xml

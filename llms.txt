@@ -1,0 +1,38 @@
+# Ziyad Mohammad Mansy Ibrahim (Ziyad Mansy)
+
+> Independent researcher in software testing and security, and senior mobile software engineer. He builds automated testing that catches the bugs people miss, especially silent failures that never crash. Three sole-authored papers under review at ICST, AST and FORGE 2027. Applying to Ph.D. programs in Computer Science for Fall 2027.
+
+Website: https://ziyadmansy.github.io/
+Email: ziyadmohammad37@gmail.com
+Google Scholar: https://scholar.google.com/citations?user=Q9Q3LB8AAAAJ
+ORCID: https://orcid.org/0009-0008-3499-3828
+GitHub: https://github.com/ziyadmansy
+LinkedIn: https://linkedin.com/in/ziyadmansy
+
+## Research question
+
+How can automated testing find the bugs and security flaws that today only human experts uncover, including silent failures that never crash, without burying developers in false alarms? A central difficulty is the test oracle problem: a test has to know what the right answer should have been.
+
+## Research, in three steps
+
+- Study 1, Coverage-Free Fuzzing (FORGE 2027, under review): an AI model wrote test-input generators for a program it could not see inside. On cJSON, accepted inputs rose from 58% to 97%. A comparison planned in advance reached 93% with no feedback, so most of the gain came from the AI's own generators. Lesson: counting failures is not enough, the AI needs to know which inputs failed and why. Preprint: https://doi.org/10.5281/zenodo.22556342
+- Study 2, Beyond Sanitizers (AST 2027, under review): the same inputs were given to the four most common ways Dart apps read JSON, flagging every input where results differed. The AI fuzzer first reached 2.9% against 22.2% for a simple generator, then 28.8% after four short notes about the libraries. Found silent data loss in Google's json_serializable and built_value, both now documented. Preprint: https://doi.org/10.5281/zenodo.22555794
+- Study 3, Where Does an LLM Fuzzer's Domain Knowledge Come From? (ICST 2027, under review): compared knowledge written by a person, read from library code, or learned by an agent's own experiments, across eight JSON decoders in Dart and Kotlin, with the study plan published in advance. In Dart, human-written notes worked best (30.9% vs. 11.6% from code and 1.5% with none). In Kotlin, the agent's experiments raised the rate from 50% to 67%. Lesson: an agent only learns from failures it manages to trigger and misses rare ones. Preprint: https://doi.org/10.5281/zenodo.23002933
+
+## Planned Ph.D. directions
+
+- Telling a real bug from intended behavior, and backing each report with evidence a maintainer can check.
+- Finding what quietly changes when an app updates a library it depends on.
+- Testing tools that do part of a security expert's work and report what they could not check.
+
+## Real-world impact
+
+- Google json_serializable: found that it silently caps out-of-range numbers and turns 1.9 into 1. Documentation fix merged: https://github.com/google/json_serializable.dart/pull/1592
+- Google built_value: a missing required list silently becomes empty, now documented: https://github.com/dart-lang/build/pull/5178
+- JetBrains kotlinx.serialization: strict mode accepts characters the JSON standard forbids: https://github.com/Kotlin/kotlinx.serialization/issues/3276
+- intercom_flutter: fixed an iOS startup crash in a package with 320K+ monthly downloads: https://github.com/deepak786/intercom_flutter/pull/431
+
+## Background
+
+- B.Sc. in Electrical Engineering (Computer Engineering and IT), Modern Academy for Engineering and Technology, Cairo, 2022. Ranked 1st of about 200. WES U.S. equivalent GPA 3.71/4.00.
+- Five years shipping production mobile apps: Naveera Tech (US, HIPAA-compliant transportation, 2026 to present), Focal Agent (UK, AI features for real estate, 2024 to 2026), Madfu (Saudi Arabia, lead engineer at a fintech licensed by the Saudi Central Bank, 2023 to 2024), Assas IT Solutions (2022), Talmaro (2021).

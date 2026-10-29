@@ -241,6 +241,9 @@ p{margin:0 0 12px}
 .check.no{background:var(--bad-bg);color:var(--bad)}
 .check .i{flex:none;font-weight:700}
 .note{background:var(--chip);border-radius:12px;padding:14px 16px;font-size:15px}
+.proof{border-left:4px solid var(--good);background:var(--surface);border-radius:0 12px 12px 0;padding:12px 16px;margin:14px 0}
+.proof .k{display:block;font-weight:700;color:var(--good);font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.proof p{margin:0;font-size:15px}
 
 /* timeline */
 .timeline{list-style:none;margin:6px 0 18px;padding:0;position:relative}
@@ -401,7 +404,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <div class="check ok"><span class="i" aria-hidden="true">✓</span><span>No error message</span></div>
     <div class="check no"><span class="i" aria-hidden="true">✗</span><span>Wrong value, and every test still passes</span></div>
   </div>
-  <p class="sources">Evidence: <a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">my report to Google (#1591)</a> with a reproducible example · <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">my fix, merged by a Google maintainer (PR #1592)</a></p>
+  <div class="proof"><span class="k">I found it, then fixed it</span><p>I traced the cause, <a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">reported it to Google</a> with a proposed fix, then wrote the fix myself. A Google maintainer <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">merged it the same day</a> and called it a "great fix to a VERY nuanced problem." My testing also found silent data loss in Google's built_value, which its maintainer <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">documented</a> after <a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">my report</a>. Together, the two libraries see over 18 million downloads a month.</p></div>
   <p class="note"><span class="hl">Why this is hard.</span> To catch it, a test has to know what the right answer should have been. Researchers call this the <span class="hl">test oracle problem</span>. A crash is easy to spot. A wrong number that looks normal is not. My research is about building automated tests that can tell, and that only report problems that are real, so developers are not buried in false alarms.</p>
 </section>
 
@@ -455,7 +458,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
       <div class="bar-row" title="Simple generator I wrote: 22.2%"><span class="bar-label">Simple generator I wrote</span><span class="bar-track"><span class="bar" style="--v:22.2"></span><span class="bar-val" style="--v:22.2">22.2%</span></span></div>
       <div class="bar-row" title="AI fuzzer with four short notes about the libraries: 28.8%"><span class="bar-label">AI fuzzer with four short notes</span><span class="bar-track"><span class="bar hi" style="--v:28.8"></span><span class="bar-val" style="--v:28.8">28.8%</span></span></div>
     </div>
-    <p>At first the AI lost to a simple generator. When I gave it four short notes on how these libraries handle unusual values, it moved ahead. Along the way I found silent data loss in two Google libraries, json_serializable and built_value, and both now document it (<a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">json_serializable PR #1592</a>, <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">built_value docs</a>).</p>
+    <p>At first the AI lost to a simple generator. When I gave it four short notes on how these libraries handle unusual values, it moved ahead. Along the way I found silent data loss in two Google libraries, json_serializable and built_value, and both acted on my findings: Google merged <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">my fix</a> to json_serializable, and built_value's maintainer <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">documented the behavior</a>.</p>
     <p class="lesson"><span class="hl">Lesson.</span> The AI did not need to search harder. It needed knowledge about the libraries.</p>
   </div>
 
@@ -565,7 +568,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <h2>Real-world impact</h2>
   <p class="lede">Problems I found or fixed in software that many developers depend on.</p>
   <ul class="plain">
-    <li><span class="hl">Google json_serializable:</span> found that it silently caps out-of-range numbers and turns 1.9 into 1. The maintainer confirmed it and merged my documentation fix (<a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">#1591</a>, <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">PR #1592</a>).</li>
+    <li><span class="hl">Google json_serializable:</span> found that it silently caps out-of-range numbers and turns 1.9 into 1. A Google maintainer merged my fix the same day and called it a "great fix to a VERY nuanced problem" (<a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">#1591</a>, <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">PR #1592</a>).</li>
     <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty. The maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">dart-lang/build#5178</a>).</li>
     <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a small reproducing example, that its strict mode accepts characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276" target="_blank" rel="noopener noreferrer">#3276</a>).</li>
     <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with 320K+ monthly downloads, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431" target="_blank" rel="noopener noreferrer">PR #431</a>).</li>

@@ -27,12 +27,13 @@ How can automated testing find the bugs and security flaws that today only human
 
 ## Real-world impact
 
-- Google json_serializable: found that it silently caps out-of-range numbers and turns 1.9 into 1. Documentation fix merged: https://github.com/google/json_serializable.dart/pull/1592
+- Google json_serializable: found that it silently caps out-of-range numbers and turns 1.9 into 1. He reported it with a proposed fix (https://github.com/google/json_serializable.dart/issues/1591) and wrote the fix, which a Google maintainer merged the same day and called a "great fix to a VERY nuanced problem": https://github.com/google/json_serializable.dart/pull/1592. json_serializable is a Google-published Flutter Favorite with 4M+ downloads a month: https://pub.dev/packages/json_serializable
 - Google built_value: a missing required list silently becomes empty, now documented: https://github.com/dart-lang/build/pull/5178
 - JetBrains kotlinx.serialization: strict mode accepts characters the JSON standard forbids: https://github.com/Kotlin/kotlinx.serialization/issues/3276
 - intercom_flutter: fixed an iOS startup crash in a package with 320K+ monthly downloads: https://github.com/deepak786/intercom_flutter/pull/431
+- LLVM: added a controlled comparison to an AddressSanitizer hang report on macOS, showing upstream LLVM 23.1.0 unaffected: https://github.com/llvm/llvm-project/issues/200447
 
 ## Background
 
 - B.Sc. in Electrical Engineering (Computer Engineering and IT), Modern Academy for Engineering and Technology, Cairo, 2022. Ranked 1st of about 200. WES U.S. equivalent GPA 3.71/4.00.
-- Five years shipping production mobile apps: Naveera Tech (US, HIPAA-compliant transportation, 2026 to present), Focal Agent (UK, AI features for real estate, 2024 to 2026), Madfu (Saudi Arabia, lead engineer at a fintech licensed by the Saudi Central Bank, 2023 to 2024), Assas IT Solutions (2022), Talmaro (2021).
+- Five years shipping production mobile apps: Naveera Tech (US, HIPAA-compliant transportation, 2026 to present), Focal Agent (UK, Senior Mobile & Web Software Engineer, AI features for real estate, 2024 to 2026), Madfu (Saudi Arabia, lead engineer at a fintech licensed by the Saudi Central Bank, 2023 to 2024), Assas IT Solutions (2022), Talmaro (2021).

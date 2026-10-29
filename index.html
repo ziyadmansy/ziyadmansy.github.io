@@ -377,12 +377,12 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <div class="cards">
     <div class="card"><span class="k">The problem</span><p>Software often fails quietly. A price is rounded, a login token ends up in a log file, a record disappears. Nothing crashes, so no test notices, and a human expert has to find it later. Sometimes an attacker finds it first.</p></div>
     <div class="card"><span class="k">What I did about it</span><p>In 2026, while working full time, I wrote three research papers on my own about using AI to guide automated testing. All three are under review at international software engineering conferences.</p></div>
-    <div class="card"><span class="k">Proof it matters</span><p>My tests found silent data loss in two Google libraries with over 18 million downloads a month. Both now document the problem, and one maintainer <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">called my fix</a> a "great fix to a VERY nuanced problem."</p></div>
+    <div class="card"><span class="k">Proof it matters</span><p>My tests found silent data loss in two Google libraries (<a href="https://pub.dev/packages/json_serializable" target="_blank" rel="noopener noreferrer">json_serializable</a>, <a href="https://pub.dev/packages/built_value" target="_blank" rel="noopener noreferrer">built_value</a>) with over 18 million downloads a month. Both now document the problem, and one maintainer <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">called my fix</a> a "great fix to a VERY nuanced problem."</p></div>
     <div class="card"><span class="k">Who I am</span><p>Five years building and securing real apps, from a fintech platform licensed by the Saudi Central Bank to US healthcare transportation. I graduated first of about 200 in Computer Engineering.</p></div>
   </div>
   <div class="stats">
     <div class="stat"><b>3</b><span>sole-authored papers under review at ICST, AST and FORGE 2027</span></div>
-    <div class="stat"><b>18M+</b><span>monthly downloads of two Google libraries where I found silent data loss</span></div>
+    <div class="stat"><b>18M+</b><span>monthly downloads of two <a href="https://pub.dev/packages/json_serializable" target="_blank" rel="noopener noreferrer">Google</a> <a href="https://pub.dev/packages/built_value" target="_blank" rel="noopener noreferrer">libraries</a> where I found silent data loss</span></div>
     <div class="stat"><b>1st</b><span>of about 200 in my graduating class</span></div>
     <div class="stat"><b>100%</b><span>of security audit findings closed every round at a central-bank-licensed fintech</span></div>
   </div>
@@ -395,7 +395,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <div class="flow" role="group" aria-label="Example of a silent failure">
     <div class="box"><span class="cap">The data says</span><code>"price": 1.9</code><p>Text arriving from a server</p></div>
     <div class="arrow" aria-hidden="true">→</div>
-    <div class="box"><span class="cap">The library reads it</span><code>json_serializable</code><p>Used by thousands of apps</p></div>
+    <div class="box"><span class="cap">The library reads it</span><code>json_serializable</code><p><a href="https://pub.dev/packages/json_serializable" target="_blank" rel="noopener noreferrer">Google's Flutter Favorite for JSON, 4M+ downloads a month</a></p></div>
     <div class="arrow" aria-hidden="true">→</div>
     <div class="box"><span class="cap">The app gets</span><code>price = 1</code><p>The value quietly changed</p></div>
   </div>
@@ -404,7 +404,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <div class="check ok"><span class="i" aria-hidden="true">✓</span><span>No error message</span></div>
     <div class="check no"><span class="i" aria-hidden="true">✗</span><span>Wrong value, and every test still passes</span></div>
   </div>
-  <div class="proof"><span class="k">I found it, then fixed it</span><p>I traced the cause, <a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">reported it to Google</a> with a proposed fix, then wrote the fix myself. A Google maintainer <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">merged it the same day</a> and called it a "great fix to a VERY nuanced problem." My testing also found silent data loss in Google's built_value, which its maintainer <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">documented</a> after <a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">my report</a>. Together, the two libraries see over 18 million downloads a month.</p></div>
+  <div class="proof"><span class="k">I found it, then fixed it</span><p>I traced the cause, <a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">reported it to Google</a> with a proposed fix, then wrote the fix myself. A Google maintainer <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">merged it the same day</a> and called it a "great fix to a VERY nuanced problem." My testing also found silent data loss in Google's built_value, which its maintainer <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">documented</a> after <a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">my report</a>. Together, <a href="https://pub.dev/packages/json_serializable" target="_blank" rel="noopener noreferrer">the two</a> <a href="https://pub.dev/packages/built_value" target="_blank" rel="noopener noreferrer">libraries</a> see over 18 million downloads a month.</p></div>
   <p class="note"><span class="hl">Why this is hard.</span> To catch it, a test has to know what the right answer should have been. Researchers call this the <span class="hl">test oracle problem</span>. A crash is easy to spot. A wrong number that looks normal is not. My research is about building automated tests that can tell, and that only report problems that are real, so developers are not buried in false alarms.</p>
 </section>
 
@@ -437,7 +437,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <span class="num">Study 1 · FORGE 2027 · under review</span>
     <h3>Can AI write good test inputs for a program it cannot see inside?</h3>
     <p><span class="lbl">The situation.</span> Most fuzzers decide which inputs are worth keeping by watching which parts of the program each one runs. That requires the program's source code, and outside testers rarely have it. Even the security auditors at the fintech where I worked asked us for ours.</p>
-    <p><span class="lbl">What I did.</span> I let an AI model write programs that generate test inputs, and told it only how many of its inputs the target program rejected. I tested it on cJSON, a widely used program that reads JSON.</p>
+    <p><span class="lbl">What I did.</span> I let an AI model write programs that generate test inputs, and told it only how many of its inputs the target program rejected. I tested it on <a href="https://github.com/DaveGamble/cJSON" target="_blank" rel="noopener noreferrer">cJSON</a>, a widely used program that reads JSON (13K+ GitHub stars).</p>
     <div class="chart">
       <p class="ct">Share of test inputs the program accepted (higher is better)</p>
       <div class="bar-row" title="Starting input generator: 58%"><span class="bar-label">Starting input generator</span><span class="bar-track"><span class="bar" style="--v:58"></span><span class="bar-val" style="--v:58">58%</span></span></div>
@@ -446,6 +446,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     </div>
     <p>A comparison I planned in advance reached 93% with no feedback at all, so most of the gain came from the AI's own generators. On a second program, the method did worse, because that program breaks the JSON standard in places and rejected inputs the AI expected to pass.</p>
     <p class="lesson"><span class="hl">Lesson.</span> Counting failures is not enough. The AI needs to know which inputs failed and why.</p>
+    <p class="sources"><a href="https://doi.org/10.5281/zenodo.22556342" target="_blank" rel="noopener noreferrer">Read the paper</a> · <a href="https://github.com/ziyadmansy/agentic-grammar-fuzzing" target="_blank" rel="noopener noreferrer">Code and data</a></p>
   </div>
 
   <div class="step">
@@ -460,12 +461,13 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     </div>
     <p>At first the AI lost to a simple generator. When I gave it four short notes on how these libraries handle unusual values, it moved ahead. Along the way I found silent data loss in two Google libraries, json_serializable and built_value, and both acted on my findings: Google merged <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">my fix</a> to json_serializable, and built_value's maintainer <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">documented the behavior</a>.</p>
     <p class="lesson"><span class="hl">Lesson.</span> The AI did not need to search harder. It needed knowledge about the libraries.</p>
+    <p class="sources"><a href="https://doi.org/10.5281/zenodo.22555794" target="_blank" rel="noopener noreferrer">Read the paper</a> · <a href="https://github.com/ziyadmansy/agentic-fuzzing-dart-json" target="_blank" rel="noopener noreferrer">Code and data</a></p>
   </div>
 
   <div class="step">
     <span class="num">Study 3 · ICST 2027 · under review</span>
     <h3>Can an AI agent learn that knowledge on its own?</h3>
-    <p><span class="lbl">What I did.</span> Across eight JSON readers in Dart and Kotlin, I compared three sources of knowledge: notes I wrote, notes an AI took from reading the library code, and notes an AI learned by running its own experiments. I published the study plan before running it, so I could not adjust it to fit the results.</p>
+    <p><span class="lbl">What I did.</span> Across eight JSON readers in Dart and Kotlin, I compared three sources of knowledge: notes I wrote, notes an AI took from reading the library code, and notes an AI learned by running its own experiments. I <a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing#pre-registration" target="_blank" rel="noopener noreferrer">published the study plan</a> before running it, so I could not adjust it to fit the results.</p>
     <div class="charts2">
       <div class="chart">
         <p class="ct">Dart: share of inputs that exposed a difference</p>
@@ -481,6 +483,7 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     </div>
     <p>In Kotlin, where differences were common, the experimenting agent helped. In Dart, where they were rare, it usually missed them and then reported that the libraries agreed.</p>
     <p class="lesson"><span class="hl">Lesson.</span> An agent only learns from failures it manages to trigger. It misses the rare ones, and that gap is where I want to start my Ph.D.</p>
+    <p class="sources"><a href="https://doi.org/10.5281/zenodo.23002933" target="_blank" rel="noopener noreferrer">Read the paper</a> · <a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing" target="_blank" rel="noopener noreferrer">Code and data</a></p>
   </div>
 </section>
 
@@ -557,10 +560,10 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <h2>How I work</h2>
   <p class="lede">What I care about when I do research.</p>
   <div class="how">
-    <div class="card"><span class="k">Plan in public</span><p>For my third study, I published the full plan before running it, so I could not change it later to fit the results.</p></div>
+    <div class="card"><span class="k">Plan in public</span><p>For my third study, I <a href="https://github.com/ziyadmansy/knowledge-sources-fuzzing/blob/main/docs/design.md" target="_blank" rel="noopener noreferrer">published the full plan</a> before running it, so I could not change it later to fit the results.</p></div>
     <div class="card"><span class="k">Report what failed</span><p>When a method did worse on a second program, I reported it and explained why, instead of showing only the good result.</p></div>
-    <div class="card"><span class="k">Release everything</span><p>All code, prompts and results are public with permanent DOIs, so anyone can recheck every number.</p></div>
-    <div class="card"><span class="k">Fix it at the source</span><p>When my tests find a real problem, I report it to the maintainers with a small example, so the fix reaches everyone who uses the library.</p></div>
+    <div class="card"><span class="k">Release everything</span><p>All code, prompts and results are public with <a href="#papers">permanent DOIs</a>, so anyone can recheck every number.</p></div>
+    <div class="card"><span class="k">Fix it at the source</span><p>When my tests find a real problem, I trace the cause, report it to the maintainers and send the fix, so it reaches everyone who uses the library. <a href="#impact">See the fixes they merged</a>.</p></div>
   </div>
 </section>
 
@@ -570,10 +573,10 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <ul class="plain">
     <li><span class="hl">Google json_serializable:</span> found that it silently caps out-of-range numbers and turns 1.9 into 1. A Google maintainer merged my fix the same day and called it a "great fix to a VERY nuanced problem" (<a href="https://github.com/google/json_serializable.dart/issues/1591" target="_blank" rel="noopener noreferrer">#1591</a>, <a href="https://github.com/google/json_serializable.dart/pull/1592" target="_blank" rel="noopener noreferrer">PR #1592</a>).</li>
     <li><span class="hl">Google built_value:</span> reported that a missing required list silently becomes empty. The maintainer confirmed it was undocumented and documented it (<a href="https://github.com/google/built_value.dart/issues/1404" target="_blank" rel="noopener noreferrer">#1404</a>, <a href="https://github.com/dart-lang/build/pull/5178" target="_blank" rel="noopener noreferrer">dart-lang/build#5178</a>).</li>
-    <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a small reproducing example, that its strict mode accepts characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276" target="_blank" rel="noopener noreferrer">#3276</a>).</li>
-    <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with 320K+ monthly downloads, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431" target="_blank" rel="noopener noreferrer">PR #431</a>).</li>
+    <li><span class="hl">JetBrains kotlinx.serialization:</span> reported, with a standalone reproducer on two releases, that its strict mode accepts characters the JSON standard forbids (<a href="https://github.com/Kotlin/kotlinx.serialization/issues/3276" target="_blank" rel="noopener noreferrer">#3276</a>).</li>
+    <li><span class="hl">intercom_flutter:</span> fixed an app crash at startup on recent iOS versions in a package with <a href="https://pub.dev/packages/intercom_flutter" target="_blank" rel="noopener noreferrer">320K+ monthly downloads</a>, released in v9.0.4 (<a href="https://github.com/deepak786/intercom_flutter/pull/431" target="_blank" rel="noopener noreferrer">PR #431</a>).</li>
     <li><span class="hl">LLVM:</span> added a controlled comparison to a report of an AddressSanitizer hang on macOS, showing that upstream LLVM 23.1.0 is unaffected (<a href="https://github.com/llvm/llvm-project/issues/200447" target="_blank" rel="noopener noreferrer">#200447</a>).</li>
-    <li><span class="hl">Community:</span> 3,000+ GitHub contributions across 50+ repositories, <a href="https://stackoverflow.com/users/14139092/ziyad-mansy" target="_blank" rel="noopener noreferrer">Stack Overflow</a> top 8% (2021), and developer articles on <a href="https://medium.com/@ziyadmohammad37" target="_blank" rel="noopener noreferrer">Medium</a>.</li>
+    <li><span class="hl">Community:</span> 3,000+ <a href="https://github.com/ziyadmansy" target="_blank" rel="noopener noreferrer">GitHub contributions</a> across 50+ repositories, <a href="https://stackoverflow.com/users/14139092/ziyad-mansy" target="_blank" rel="noopener noreferrer">Stack Overflow</a> top 8% (2021), and developer articles on <a href="https://medium.com/@ziyadmohammad37" target="_blank" rel="noopener noreferrer">Medium</a>.</li>
   </ul>
 </section>
 
@@ -582,17 +585,22 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <p class="lede">Five years shipping and securing production apps in fintech, healthcare, transportation, HR and real estate, with 200K+ combined downloads. Open any role for details.</p>
   <div class="item"><div class="top"><h3>Senior Mobile Software Engineer, Naveera Tech (US, remote)</h3><span class="when">May 2026 – Present</span></div>
     <p class="one">Took over a fleet platform that had gone 9 months without a release and shipped it within a month. It now handles thousands of trips a day for hundreds of US organizations, including medical transportation.</p>
+    <p class="sources"><a href="https://apps.apple.com/us/app/naveera-driver/id6769880111" target="_blank" rel="noopener noreferrer">Naveera Driver on the App Store</a> · <a href="https://play.google.com/store/apps/details?id=tech.naveera.driver" target="_blank" rel="noopener noreferrer">Google Play</a></p>
     <details><summary>Details</summary><ul><li>Built the HIPAA-compliant Driver and Client apps used by non-emergency medical transportation, paratransit and commercial transportation providers.</li><li>Designed an offline-first architecture that keeps dispatch, navigation and trip state correct when the connection drops, and reconciles automatically when it returns.</li><li>Built live turn-by-turn navigation and the dispatch, routing and billing workflows.</li><li>Own testing end to end: unit and integration tests, manual test passes, and AI agents that run manual-style test scenarios across the apps' core flows.</li></ul></details></div>
   <div class="item"><div class="top"><h3>Senior Mobile &amp; Web Software Engineer, Focal Agent (UK, remote)</h3><span class="when">Aug 2024 – Apr 2026</span></div>
     <p class="one">Delivered AI features for PropertyBox, a real-estate platform used by thousands of estate agents across the UK, Europe and the UAE.</p>
+    <p class="sources"><a href="https://propertybox.io/" target="_blank" rel="noopener noreferrer">PropertyBox</a> · <a href="https://apps.apple.com/gb/app/propertybox/id1660237557" target="_blank" rel="noopener noreferrer">App Store</a> · <a href="https://play.google.com/store/apps/details?id=io.propertybox.propertybox2_app" target="_blank" rel="noopener noreferrer">Google Play</a></p>
     <details><summary>Details</summary><ul><li>AI photo enhancement, object removal, floor-plan redrawing, property-description generation and one-step social publishing.</li><li>Custom features for enterprise clients Reapit and Connells, and UK regulatory workflows for EPC compliance.</li><li>One Flutter codebase for Web, Android and iOS, shipped through automated CI/CD on Azure Pipelines.</li><li>Unit and integration tests, plus AI agents that test the app the way a human tester would. Ran recurring sessions teaching colleagues to use AI coding tools.</li></ul></details></div>
   <div class="item"><div class="top"><h3>Lead Mobile Software Engineer, Madfu (Saudi Arabia, remote)</h3><span class="when">Jan 2023 – Jul 2024</span></div>
-    <p class="one">Led a team of three senior engineers building the apps of a buy-now-pay-later platform licensed by the Saudi Central Bank (100K+ downloads), with zero security incidents in production.</p>
+    <p class="one">Led a team of three senior engineers building the apps of a buy-now-pay-later platform <a href="https://www.electronicpaymentsinternational.com/news/saudi-central-bank-grants-bnpl-permits-to-spotii-and-madfu/" target="_blank" rel="noopener noreferrer">licensed by the Saudi Central Bank</a> (100K+ downloads), with zero security incidents in production.</p>
+    <p class="sources"><a href="https://apps.apple.com/us/app/madfu-shop-today-pay-later/id1658723268" target="_blank" rel="noopener noreferrer">MADFU on the App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.sa.app.madfuser" target="_blank" rel="noopener noreferrer">Google Play</a> · <a href="https://apps.apple.com/us/app/madfu-partner/id6446491621" target="_blank" rel="noopener noreferrer">MADFU Partner on the App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.madfumerchantapp" target="_blank" rel="noopener noreferrer">Google Play</a></p>
     <details><summary>Details</summary><ul><li>Replaced separate native Android and iOS apps with one Flutter app built from scratch, for consumers and merchants.</li><li>Closed all 5 to 10 findings from every recurring third-party security audit, including secure key handling, encryption at rest, SSL pinning and screen-capture protection.</li><li>Built the team's quality process from nothing: mandatory code review, a shared component library and test-driven development. Crash-free users rose to 98% against a 95% target, with a two-week release cadence.</li></ul></details></div>
   <div class="item"><div class="top"><h3>Senior Mobile Software Engineer, Assas IT Solutions (Saudi Arabia, remote)</h3><span class="when">Jan 2022 – Dec 2022</span></div>
-    <p class="one">Built core features of Tahara, a women's-health app that reached #2 in Health &amp; Fitness on the Saudi App Store, with 100K+ downloads. Mentored junior engineers.</p></div>
+    <p class="one">Built core features of Tahara, a women's-health app that reached #2 in Health &amp; Fitness on the Saudi App Store, with 100K+ downloads. Mentored junior engineers.</p>
+    <p class="sources"><a href="https://apps.apple.com/sa/app/tahara-%D8%B7%D9%87%D8%A7%D8%B1%D8%A9/id6446452995" target="_blank" rel="noopener noreferrer">Tahara on the App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.tahara.tahara_app" target="_blank" rel="noopener noreferrer">Google Play</a></p></div>
   <div class="item"><div class="top"><h3>Founding Mobile Software Engineer, Talmaro (UAE, remote)</h3><span class="when">Mar 2021 – Dec 2021</span></div>
-    <p class="one">The company's first mobile engineer. Built and shipped its HR app from scratch, reaching 10K+ downloads across three app stores.</p></div>
+    <p class="one">The company's first mobile engineer. Built and shipped its HR app from scratch, reaching 10K+ downloads across three app stores.</p>
+    <p class="sources"><a href="https://apps.apple.com/us/app/talmaro-ess/id1484374387" target="_blank" rel="noopener noreferrer">Talmaro-ESS on the App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.onecliquesystems.one_click_app" target="_blank" rel="noopener noreferrer">Google Play</a> · <a href="https://appgallery.huawei.com/app/C109430081" target="_blank" rel="noopener noreferrer">AppGallery</a></p></div>
   <div class="item"><div class="top"><h3>Independent App Developer</h3><span class="when">Self-published</span></div>
     <p class="one">Published <a href="https://play.google.com/store/apps/dev?id=6637516697625901674" target="_blank" rel="noopener noreferrer">5 apps</a> on Google Play as sole developer, including a Flutter app in 9 languages (1K+ downloads, 4.9/5).</p></div>
 </section>

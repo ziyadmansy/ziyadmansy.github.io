@@ -411,21 +411,22 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <section id="why-now">
   <h2>Why this matters now: PHP2Shell</h2>
   <p class="lede">A real example from October 2026 of a flaw that testing missed for over a decade.</p>
-  <p>PHP is the programming language behind most websites. In October 2026, two critical flaws in it, nicknamed PHP2Shell, let attackers take over web servers without logging in. The bug sat in code that only runs in a rare situation, when the server runs out of memory while reading a request.</p>
+  <p>PHP is the programming language behind most websites. In October 2026, two critical flaws in it, nicknamed PHP2Shell, let attackers take over web servers without logging in. Both flaws sat in error-handling code that runs only when a request ends abnormally, for example when the server runs out of memory partway through it.</p>
   <ol class="timeline">
-    <li><time>2012</time><p>PHP 5.4 is released. Every version from here through 8.5 carries the flaw.</p></li>
-    <li><time>2012 to 2026</time><p>Years of testing never trigger it, because the faulty code only runs on a rare error.</p></li>
-    <li><time>2026</time><p>Security researchers using AI models report the flaw.</p></li>
-    <li class="alert"><time>Oct 17, 2026</time><p>The first attack attempts are reported, before any fix exists.</p></li>
-    <li class="fix"><time>Oct 21, 2026</time><p>PHP releases emergency fixes for every supported version.</p></li>
+    <li><time>2012</time><p>PHP 5.4 is released. Researchers later traced the earliest affected code back to it.</p></li>
+    <li><time>2012 to 2026</time><p>Years of testing never trigger them, because the faulty code runs only when a request fails in an unusual way.</p></li>
+    <li><time>2026</time><p>Researchers from Calif, Wiz and OpenAI report the flaws to PHP. Calif and Wiz say they used AI models in their research.</p></li>
+    <li class="alert"><time>Oct 17, 2026</time><p>Amazon's honeypots record the first attack attempts, four days before any fix exists.</p></li>
+    <li class="fix"><time>Oct 21, 2026</time><p>After the exploit leaks, PHP moves its release up a day and ships fixes for every supported version (8.2 to 8.5).</p></li>
+    <li class="alert"><time>Oct 26, 2026</time><p>CISA, the US cybersecurity agency, lists both flaws as exploited in real attacks.</p></li>
   </ol>
   <h3>What it teaches, and how it connects to my work</h3>
   <div class="lessons">
     <div class="card"><span class="k">Rare paths hide bugs</span><p>Tests mostly run the common paths. In my third study, an AI testing agent missed the rare failures and then told me everything was fine.</p></div>
-    <div class="card"><span class="k">It is a race</span><p>AI helped find this flaw, and attackers were already trying to use it. The goal is to find such flaws before attackers do.</p></div>
+    <div class="card"><span class="k">It is a race</span><p>AI helped find these flaws, and attackers were trying to use them before any fix existed. The goal is to find such flaws before attackers do.</p></div>
     <div class="card"><span class="k">"No bugs found" is not "no bugs"</span><p>A testing tool should say clearly what it could not check, instead of declaring the software safe.</p></div>
   </div>
-  <p class="sources">Sources: <a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching" target="_blank" rel="noopener noreferrer">CISA</a> · <a href="https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619" target="_blank" rel="noopener noreferrer">Canadian Centre for Cyber Security</a> · <a href="https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote" target="_blank" rel="noopener noreferrer">Tenable</a> · <a href="https://www.securityweek.com/php2shell-mass-exploitation-looms-for-leaked-critical-php-flaws/" target="_blank" rel="noopener noreferrer">SecurityWeek</a>. CVE-2026-109618 and CVE-2026-109619.</p>
+  <p class="sources">Sources: <a href="https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote" target="_blank" rel="noopener noreferrer">Tenable</a> · <a href="https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619" target="_blank" rel="noopener noreferrer">Canadian Centre for Cyber Security</a> · <a href="https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/" target="_blank" rel="noopener noreferrer">BleepingComputer</a>. CVE-2026-109618 and CVE-2026-109619.</p>
 </section>
 
 <section id="research">

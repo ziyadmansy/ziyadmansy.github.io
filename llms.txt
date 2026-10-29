@@ -27,7 +27,7 @@ How can automated testing find the bugs and security flaws that today only human
 
 ## Real-world impact
 
-- Google json_serializable: found that it silently caps out-of-range numbers and turns 1.9 into 1. He reported it with a proposed fix (https://github.com/google/json_serializable.dart/issues/1591) and wrote the fix, which a Google maintainer merged the same day and called a "great fix to a VERY nuanced problem": https://github.com/google/json_serializable.dart/pull/1592. json_serializable is a Google-published Flutter Favorite with 4M+ downloads a month: https://pub.dev/packages/json_serializable
+- Google json_serializable: found that it silently caps out-of-range numbers and turns 1.9 into 1. He reported it with a proposed fix (https://github.com/google/json_serializable.dart/issues/1591) and wrote the fix, which a Google maintainer merged the same day and called a "great fix to a VERY nuanced problem": https://github.com/google/json_serializable.dart/pull/1592. json_serializable is a Google-published Flutter Favorite with 4M+ downloads a month (https://pub.dev/packages/json_serializable), used by 360K+ GitHub repositories: https://github.com/google/json_serializable.dart/network/dependents
 - Google built_value: a missing required list silently becomes empty, now documented: https://github.com/dart-lang/build/pull/5178
 - JetBrains kotlinx.serialization: strict mode accepts characters the JSON standard forbids: https://github.com/Kotlin/kotlinx.serialization/issues/3276
 - intercom_flutter: fixed an iOS startup crash in a package with 320K+ monthly downloads: https://github.com/deepak786/intercom_flutter/pull/431

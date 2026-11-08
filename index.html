@@ -167,12 +167,6 @@
   --serif:"Source Serif 4",Georgia,serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--bg:#0f1216; --surface:#161a20; --ink:#e7eaee; --muted:#a2abb7; --line:#262c35;
-        --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2;
-        --bad:#f08a8a; --bad-bg:#2a1719; --good-bg:#14261c;
-        --bar-hi:#3987e5; --bar-lo:#5b6575; --grid:#2c2c2a; color-scheme:dark}
-}
 :root[data-theme="dark"]{--bg:#0f1216; --surface:#161a20; --ink:#e7eaee; --muted:#a2abb7; --line:#262c35;
         --accent:#9db8ef; --accent-2:#b9cdf5; --chip:#1d2430; --good:#7fd1a2;
         --bad:#f08a8a; --bad-bg:#2a1719; --good-bg:#14261c;
@@ -183,10 +177,6 @@
 .theme-toggle .sun{display:none}
 :root[data-theme="dark"] .theme-toggle .sun{display:block}
 :root[data-theme="dark"] .theme-toggle .moon{display:none}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .theme-toggle .sun{display:block}
-  :root:not([data-theme="light"]) .theme-toggle .moon{display:none}
-}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
@@ -341,9 +331,8 @@ footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 </div></nav>
 <script>
 (function(){
-  var root=document.documentElement, btn=document.getElementById('themeToggle'),
-      mq=window.matchMedia('(prefers-color-scheme: dark)');
-  function current(){return root.getAttribute('data-theme')||(mq.matches?'dark':'light')}
+  var root=document.documentElement, btn=document.getElementById('themeToggle');
+  function current(){return root.getAttribute('data-theme')||'light'}
   btn.addEventListener('click',function(){
     var next=current()==='dark'?'light':'dark';
     root.setAttribute('data-theme',next);
